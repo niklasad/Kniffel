@@ -1,2 +1,3 @@
 # Kniffel
-Yatzi peli
+Yatzi peli, muita tai tekoälyä vastaan.
+
