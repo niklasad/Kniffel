@@ -37,11 +37,11 @@
                 <configuration>
                     <targetClasses>
                         <param>kniffel.pelaaja.*</param>
-                        
+                        <param>kniffel.nopat.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>kniffel.pelaaja.*</param>
-                        
+                        <param>kniffel.nopat.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

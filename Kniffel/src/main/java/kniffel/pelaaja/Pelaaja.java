@@ -27,7 +27,13 @@ public class Pelaaja {
     }
 
     public void lisaaPisteet(int pisteet) {
-        this.pisteet += pisteet;
+        if (pisteet >= 0) {
+            this.pisteet += pisteet;
+        }
+    }
+
+    public void nollaaPisteet() {
+        this.pisteet = 0;
     }
 
 }
