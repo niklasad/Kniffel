@@ -1,4 +1,8 @@
 # Kniffel
-Yatzi peli, muita tai tekoälyä vastaan.
+Yatzi peli, yksin tai muita ihmisiä vastaan.
 
-Pullauksen harjoittelua
+Dokumentointi
+
+[Aiheen kuvaus](/dokumentointi/aiheenKuvausJaRakenne.md)
+[Tuntikirjanpito](/dokumentointi/tuntikirjanpito.md)
+
