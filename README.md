@@ -1,7 +1,7 @@
 # Kniffel
 Yatzi peli, yksin tai muita ihmisiä vastaan.
 
-'**Dokumentointi**
+**Dokumentointi**
 
 [Aiheen kuvaus](/dokumentointi/aiheenKuvausJaRakenne.md)
 
