@@ -9,12 +9,12 @@ import kniffel.pelaaja.Pelaaja;
  *
  * @author nakkilinux
  */
-public class pelialusta {
+public class Pelialusta {
 
     private List<Pelaaja> pelaajat;
     private List<Noppa> nopat;
 
-    public pelialusta() {
+    public Pelialusta() {
         this.pelaajat = new ArrayList();
         this.nopat = new ArrayList();
     }

@@ -5,27 +5,29 @@ package kniffel.pelaaja;
  * @author nakkilinux
  */
 public class Pelaaja {
-    
+
     private String nimi;
     private int pisteet;
-    
-    public Pelaaja(String nimi){
-        this.nimi=nimi;
+
+    public Pelaaja(String nimi) {
+        this.nimi = nimi;
         this.pisteet = 0;
     }
-    
-    public String getNimi(){
+
+    public String toString() {
+        return this.nimi + ", pisteet: " + this.pisteet;
+    }
+
+    public String getNimi() {
         return this.nimi;
     }
-    
-    public int getPisteet(){
+
+    public int getPisteet() {
         return this.pisteet;
     }
-    
-    public void lisaaPisteet(int pisteet){
+
+    public void lisaaPisteet(int pisteet) {
         this.pisteet += pisteet;
     }
-    
-    
-    
+
 }

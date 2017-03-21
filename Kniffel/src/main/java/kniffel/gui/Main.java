@@ -1,6 +1,7 @@
 package kniffel.gui;
 
 import kniffel.nopat.Noppa;
+import kniffel.pelaaja.Pelaaja;
 
 /**
  *
@@ -9,10 +10,16 @@ import kniffel.nopat.Noppa;
 public class Main {
 
     public static void main(String[] args) {
+        int x = 0;
+        Noppa noppa = new Noppa();
         
-        System.out.println("asdasdada");
-        Noppa noppa = new Noppa();            
-        noppa.heitaNoppaa();
-        System.out.println("Silmäluku: " + noppa.palautaSilmaluku());
+        Pelaaja nikke = new Pelaaja("Nikke");
+        System.out.println(nikke);
+        
+//        while (x < 150) {
+//            noppa.heitaNoppaa();
+//            System.out.println("Silmäluku: " + noppa.palautaSilmaluku());
+//            x++;
+//        }
     }
 }
