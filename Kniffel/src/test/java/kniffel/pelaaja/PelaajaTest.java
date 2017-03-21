@@ -42,48 +42,52 @@ public class PelaajaTest {
         String nimi = pelaaja.getNimi();
         assertEquals("pelaaja1", nimi);
     }
+
     @Test
-    public void pisteetAluksiNolla(){
+    public void pisteetAluksiNolla() {
         assertEquals(0, pelaaja.getPisteet());
     }
-    
+
     @Test
-    public void yhdenPisteidenLisaaminen(){
+    public void yhdenPisteidenLisaaminen() {
         pelaaja.lisaaPisteet(1);
-        assertEquals(1,pelaaja.getPisteet());
+        assertEquals(1, pelaaja.getPisteet());
     }
-    
+
     @Test
-    public void useanPisteenLisaaminenKerralla(){
+    public void useanPisteenLisaaminen() {
         pelaaja.lisaaPisteet(30);
-        assertEquals(30,pelaaja.getPisteet());
+        assertEquals(30, pelaaja.getPisteet());
     }
-    
+
     @Test
-    public void eiVoiLisataNegatiivisiaPisteita(){
+    public void eiVoiLisataNegatiivisiaPisteita() {
         pelaaja.lisaaPisteet(10);
         pelaaja.lisaaPisteet(-5);
-        assertEquals(10,pelaaja.getPisteet());
+        assertEquals(10, pelaaja.getPisteet());
     }
-    
+
     @Test
-    public void nollanLisaaminenEiMuutaPisteita(){
+    public void nollanLisaaminenEiMuutaPisteita() {
         pelaaja.lisaaPisteet(10);
         pelaaja.lisaaPisteet(0);
-        assertEquals(10,pelaaja.getPisteet());
+        assertEquals(10, pelaaja.getPisteet());
     }
+
     @Test
-    public void pisteidenNollaaminen(){
+    public void pisteidenNollaaminen() {
         pelaaja.lisaaPisteet(20);
         pelaaja.nollaaPisteet();
         assertEquals(0, pelaaja.getPisteet());
+    }
+
+    @Test
+    public void toStringToimii() {
+
     }
 
     @After
     public void tearDown() {
     }
 
-    @Test
-    public void hello() {
-    }
 }

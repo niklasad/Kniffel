@@ -21,9 +21,9 @@ public class Pelivuoro {
             this.nopat.get(x).heitaNoppaa();
         }
     }
-    
-    public void naytaSilmaluvut(){
-        for(int x = 0; x<nopat.size();x++){
+
+    public void naytaSilmaluvut() {
+        for (int x = 0; x < nopat.size(); x++) {
             nopat.get(x).palautaSilmaluku();
         }
     }

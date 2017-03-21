@@ -13,9 +13,10 @@ public class Noppa {
 
     public Noppa() {
         this.luku = new Random();
+        
     }
 
-    public int palautaSilmaluku() {
+    public int palautaSilmaluku() {        
         return this.silmaluku;
     }
 

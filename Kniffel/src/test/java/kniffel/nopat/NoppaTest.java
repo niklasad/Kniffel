@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class NoppaTest {
 
+    private Noppa noppa;
+
     public NoppaTest() {
     }
 
@@ -31,6 +33,7 @@ public class NoppaTest {
 
     @Before
     public void setUp() {
+        this.noppa = new Noppa();
     }
 
     @After
@@ -38,6 +41,22 @@ public class NoppaTest {
     }
 
     @Test
-    public void hello() {
+    public void silmaLukuEiVoiAlittaaNollaa() {
+        int x = 0;
+        while (x < 100000) {
+            this.noppa.heitaNoppaa();
+            assertTrue(noppa.palautaSilmaluku() > 0);
+            x++;
+        }
+    }
+
+    @Test
+    public void silmaLukuEiVoiYlittaaKuutta() {
+        int x = 0;
+        while (x < 100000) {
+            this.noppa.heitaNoppaa();
+            assertTrue(noppa.palautaSilmaluku() <= 6);
+            x++;
+        }
     }
 }

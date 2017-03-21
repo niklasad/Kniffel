@@ -24,7 +24,5 @@ public class Pelialusta {
             nopat.add(new Noppa());
         }
     }
-    
-    
 
 }
