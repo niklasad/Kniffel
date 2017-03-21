@@ -9,5 +9,5 @@ pelata yksin tai kavereiden kanssa.
 - säilytettävin noppien valitseminen
 - pisteiden kohdistaminen johonkin tulokseen
 
-![Määrittelyvaiheen luokkakaavio] (/dokumentointi/luokkakaavio.png)
+![Määrittelyvaiheen luokkakaavio](luokkakaavio.png "Määrittelyvaiheen luokkakaavio")
 
