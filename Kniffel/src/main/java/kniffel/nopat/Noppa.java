@@ -10,19 +10,30 @@ public class Noppa {
 
     private Random luku;
     private int silmaluku;
+    private boolean lukittu;
 
     public Noppa() {
         this.luku = new Random();
-        
+        this.lukittu = false;
     }
 
     public int palautaSilmaluku() {        
         return this.silmaluku;
     }
 
-    public void heitaNoppaa() {
+    public void heitaNoppaa() {        
         this.silmaluku = luku.nextInt(6) + 1;
     }
+    
+    public void saasta(){
+        this.lukittu = true;
+    }
+    
+    public boolean saastetaanko(){
+        return this.lukittu;
+    }
+    
+    
     
     
 }

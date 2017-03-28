@@ -13,10 +13,10 @@ public class Pelialusta {
 
     private List<Pelaaja> pelaajat;
     private List<Noppa> nopat;
-
-    public Pelialusta() {
-        this.pelaajat = new ArrayList();
+    private List<Pistetaulu> pisteet;
+    public Pelialusta() {        
         this.nopat = new ArrayList();
+        this.alustaNopat();        
     }
 
     private void alustaNopat() {
@@ -24,5 +24,19 @@ public class Pelialusta {
             nopat.add(new Noppa());
         }
     }
+    
+    public void lisaaPelaajat(List<Pelaaja> pelaajat){
+        this.pelaajat = pelaajat;
+    }
+    
+    public void pelaaKierros(){
+        for (Pelaaja pelaaja : pelaajat) {
+            Heittovuoro vuoro = new Heittovuoro(pelaaja,nopat);
+            vuoro.run();
+            
+        }
+    }
+    
+    
 
 }

@@ -83,7 +83,7 @@ public class PelaajaTest {
 
     @Test
     public void toStringToimii() {
-        assertEquals("pelaaja 1, pistet: 0", pelaaja.toString());
+        assertEquals("pelaaja1, pistet: 0", pelaaja.toString());
     }
 
     @After

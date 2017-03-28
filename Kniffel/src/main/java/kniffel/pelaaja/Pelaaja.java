@@ -1,5 +1,8 @@
 package kniffel.pelaaja;
 
+import java.util.List;
+import kniffel.nopat.Noppa;
+
 /**
  *
  * @author nakkilinux
@@ -35,5 +38,21 @@ public class Pelaaja {
     public void nollaaPisteet() {
         this.pisteet = 0;
     }
+
+    public List<Noppa> heitaNopat(List<Noppa> nopat) {
+        for (Noppa noppa : nopat) {
+            if (noppa.saastetaanko() == false) {
+                noppa.heitaNoppaa();
+            }
+        }
+        return nopat;
+    }
+
+    public void valitseNopat(List<Noppa> nopat){
+        for (Noppa noppa : nopat) {
+        
+        }
+    }
+    
 
 }
