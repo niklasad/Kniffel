@@ -17,7 +17,7 @@ public class Noppa {
         this.lukittu = false;
     }
 
-    public int palautaSilmaluku() {        
+    public int silmaluku() {        
         return this.silmaluku;
     }
 

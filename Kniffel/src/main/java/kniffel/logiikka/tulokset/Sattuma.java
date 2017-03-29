@@ -3,25 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kniffel.logiikka;
+package kniffel.logiikka.tulokset;
 
 import java.util.List;
-import kniffel.nopat.Noppa;
 
 /**
  *
  * @author niklasad
  */
-public class Kasi {
-    
-    private List<Noppa> nopat;
-    
-    public Kasi(List<Noppa> nopat){
-        this.nopat = nopat;
+public class Sattuma extends Tulos {
+
+    public void kayta(List<Integer> kasi) {
+        for (Integer luku : kasi) {
+            pisteet += luku;
+        }
+        kaytetty = true;
+
     }
-    
-    public void valitseTulos(Tulos tulos){
-        
-    }
-    
+
 }

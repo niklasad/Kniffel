@@ -45,7 +45,7 @@ public class NoppaTest {
         int x = 0;
         while (x < 100000) {
             this.noppa.heitaNoppaa();
-            assertTrue(noppa.palautaSilmaluku() > 0);
+            assertTrue(noppa.silmaluku() > 0);
             x++;
         }
     }
@@ -55,7 +55,7 @@ public class NoppaTest {
         int x = 0;
         while (x < 100000) {
             this.noppa.heitaNoppaa();
-            assertTrue(noppa.palautaSilmaluku() <= 6);
+            assertTrue(noppa.silmaluku() <= 6);
             x++;
         }
     }

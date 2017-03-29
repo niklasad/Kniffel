@@ -3,17 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kniffel.logiikka;
+package kniffel.logiikka.tulokset;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
  * @author niklasad
  */
-public class Pistetaulu {
+public class Tayskasi extends Tulos{
     
-    
-    
-    public Pistetaulu(){
+    public void kayta(ArrayList<Integer> kasi){
+        Collections.sort(kasi);
         
     }
     

@@ -13,7 +13,7 @@ public class Pelialusta {
 
     private List<Pelaaja> pelaajat;
     private List<Noppa> nopat;
-    private List<Pistetaulu> pisteet;
+    private List<Poytakirja> pisteet;
     public Pelialusta() {        
         this.nopat = new ArrayList();
         this.alustaNopat();        
