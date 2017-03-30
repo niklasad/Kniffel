@@ -50,41 +50,36 @@ public class PelaajaTest {
     }
 
     @Test
-    public void yhdenPisteidenLisaaminen() {
-        pelaaja.lisaaPisteet();
-        assertEquals(1, pelaaja.getPisteet());
+    public void tuloksenLisaaminenKasvattaaYhteisPisteita() {
+        pelaaja.lisaaTulos("Ykköset", 4);
+        assertEquals(4, pelaaja.getPisteet());
+    } 
+    
+    @Test 
+    public void kahdenTuloksenLisaaminenKasvattaaYhteispisteitaOikein(){
+        pelaaja.lisaaTulos("Kakkoset", 6);
+        pelaaja.lisaaTulos("Neloset",16);
+        assertEquals(22, pelaaja.getPisteet());
+    }
+    
+    @Test
+    public void kaytettyaTulostaEiVoiMuuttaa(){
+        pelaaja.lisaaTulos("Kakkoset", 6);
+        pelaaja.lisaaTulos("Kakkoset", 2);
+        assertEquals(6, pelaaja.haeTulos("Kakkoset"));
     }
 
     @Test
-    public void useanPisteenLisaaminen() {
-        pelaaja.lisaaPisteet();
-        assertEquals(30, pelaaja.getPisteet());
-    }
-
-    @Test
-    public void eiVoiLisataNegatiivisiaPisteita() {
-        pelaaja.lisaaPisteet();
-        pelaaja.lisaaPisteet();
+    public void nollanLisaaminenEiMuutaYhteisPisteita() {
+        pelaaja.lisaaTulos("Kakkoset", 10);
+        pelaaja.lisaaTulos("kolmoset", 0);
         assertEquals(10, pelaaja.getPisteet());
     }
 
-    @Test
-    public void nollanLisaaminenEiMuutaPisteita() {
-        pelaaja.lisaaPisteet();
-        pelaaja.lisaaPisteet();
-        assertEquals(10, pelaaja.getPisteet());
-    }
-
-    @Test
-    public void pisteidenNollaaminen() {
-        pelaaja.lisaaPisteet();
-        pelaaja.nollaaPisteet();
-        assertEquals(0, pelaaja.getPisteet());
-    }
 
     @Test
     public void toStringToimii() {
-        assertEquals("pelaaja1, pistet: 0", pelaaja.toString());
+        assertEquals("pelaaja1, pisteet: 0", pelaaja.toString());
     }
 
     @After

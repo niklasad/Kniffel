@@ -23,10 +23,7 @@ public class Main {
         nopat.add(new Noppa());
         nopat.add(new Noppa());
         System.out.println(nikke);
-        System.out.println(nopat);
-        nikke.heitaNopat(nopat);
-        nikke.lisaaTulos(nopat, 1);
-        nikke.lisaaPisteet();
+
         System.out.println(nopat);
         System.out.println(nikke);
 

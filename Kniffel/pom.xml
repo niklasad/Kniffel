@@ -36,12 +36,11 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>kniffel.pelaaja.*</param>
-                        <param>kniffel.nopat.*</param>
+                        <param>kniffel.logiikka.*</param>                        
                     </targetClasses>
                     <targetTests>
-                        <param>kniffel.pelaaja.*</param>
-                        <param>kniffel.nopat.*</param>
+                        <param>kniffel.logiikka.*</param>
+
                     </targetTests>
                 </configuration>
             </plugin>
