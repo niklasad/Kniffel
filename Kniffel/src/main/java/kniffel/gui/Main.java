@@ -1,7 +1,8 @@
 package kniffel.gui;
 
-import kniffel.nopat.Noppa;
-import kniffel.pelaaja.Pelaaja;
+import java.util.ArrayList;
+import kniffel.logiikka.Noppa;
+import kniffel.logiikka.Pelaaja;
 
 /**
  *
@@ -11,16 +12,24 @@ public class Main {
 
     public static void main(String[] args) {
         int x = 0;
-        Noppa noppa = new Noppa();
-
+//        Pelialusta alusta = new Pelialusta();
+//        ArrayList<Pelaaja> pelaajat = new ArrayList();
         Pelaaja nikke = new Pelaaja("Nikke");
+//        pelaajat.add(nikke);
+        ArrayList<Noppa> nopat = new ArrayList();
+        nopat.add(new Noppa());
+        nopat.add(new Noppa());
+        nopat.add(new Noppa());
+        nopat.add(new Noppa());
+        nopat.add(new Noppa());
+        System.out.println(nikke);
+        System.out.println(nopat);
+        nikke.heitaNopat(nopat);
+        nikke.lisaaTulos(nopat, 1);
+        nikke.lisaaPisteet();
+        System.out.println(nopat);
         System.out.println(nikke);
 
-        nikke.lisaaPisteet(100);
-        nikke.lisaaPisteet(-23);
-        System.out.println(nikke);
-        nikke.nollaaPisteet();
-        System.out.println(nikke);
 
 //        while (x < 150) {
 //            noppa.heitaNoppaa();

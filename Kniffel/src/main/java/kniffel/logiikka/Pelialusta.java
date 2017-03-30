@@ -2,8 +2,6 @@ package kniffel.logiikka;
 
 import java.util.ArrayList;
 import java.util.List;
-import kniffel.nopat.Noppa;
-import kniffel.pelaaja.Pelaaja;
 
 /**
  *
@@ -13,10 +11,10 @@ public class Pelialusta {
 
     private List<Pelaaja> pelaajat;
     private List<Noppa> nopat;
-    private List<Poytakirja> pisteet;
-    public Pelialusta() {        
+
+    public Pelialusta() {
         this.nopat = new ArrayList();
-        this.alustaNopat();        
+        this.alustaNopat();
     }
 
     private void alustaNopat() {
@@ -24,19 +22,17 @@ public class Pelialusta {
             nopat.add(new Noppa());
         }
     }
-    
-    public void lisaaPelaajat(List<Pelaaja> pelaajat){
+
+    public void lisaaPelaajat(List<Pelaaja> pelaajat) {
         this.pelaajat = pelaajat;
     }
-    
-    public void pelaaKierros(){
+
+    public void pelaaKierros() {
         for (Pelaaja pelaaja : pelaajat) {
-            Heittovuoro vuoro = new Heittovuoro(pelaaja,nopat);
+            Heittovuoro vuoro = new Heittovuoro(pelaaja, nopat);
             vuoro.run();
-            
+
         }
     }
-    
-    
 
 }

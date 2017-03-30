@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kniffel.pelaaja;
+package kniffel.logiikka;
 
+import kniffel.logiikka.Pelaaja;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -50,33 +51,33 @@ public class PelaajaTest {
 
     @Test
     public void yhdenPisteidenLisaaminen() {
-        pelaaja.lisaaPisteet(1);
+        pelaaja.lisaaPisteet();
         assertEquals(1, pelaaja.getPisteet());
     }
 
     @Test
     public void useanPisteenLisaaminen() {
-        pelaaja.lisaaPisteet(30);
+        pelaaja.lisaaPisteet();
         assertEquals(30, pelaaja.getPisteet());
     }
 
     @Test
     public void eiVoiLisataNegatiivisiaPisteita() {
-        pelaaja.lisaaPisteet(10);
-        pelaaja.lisaaPisteet(-5);
+        pelaaja.lisaaPisteet();
+        pelaaja.lisaaPisteet();
         assertEquals(10, pelaaja.getPisteet());
     }
 
     @Test
     public void nollanLisaaminenEiMuutaPisteita() {
-        pelaaja.lisaaPisteet(10);
-        pelaaja.lisaaPisteet(0);
+        pelaaja.lisaaPisteet();
+        pelaaja.lisaaPisteet();
         assertEquals(10, pelaaja.getPisteet());
     }
 
     @Test
     public void pisteidenNollaaminen() {
-        pelaaja.lisaaPisteet(20);
+        pelaaja.lisaaPisteet();
         pelaaja.nollaaPisteet();
         assertEquals(0, pelaaja.getPisteet());
     }

@@ -5,20 +5,28 @@
  */
 package kniffel.logiikka;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import kniffel.nopat.Noppa;
 
 /**
  *
  * @author niklasad
  */
-public class Poytakirja {
+public class Pistelaskuri {
 
     private HashMap<String, Integer> pisteet;
 
-    public Poytakirja() {
+    public Pistelaskuri() {
         this.pisteet = new HashMap<String, Integer>();
+    }
+
+    public int yhteisPisteet() {
+        int x = 0;
+        for (Integer piste : pisteet.values()) {
+            x += piste;
+        }
+        return x;
     }
 
     public void ykkoset(List<Noppa> kasi) {
@@ -55,22 +63,90 @@ public class Poytakirja {
         int pari = this.samojenLoytaja(kasi, "pari");
         this.pisteet.put("pari", pari);
     }
-    public void kolmesamaa(List<Noppa> kasi){
+
+    public void kaksiParia(List<Noppa> kasi) {
+        int x = 0;
+        int eka = this.samojenLoytaja(kasi, "pari");
+        if (eka != 0) {
+            kasi.remove(eka);
+            kasi.remove(eka);
+            int toka = this.samojenLoytaja(kasi, "pari");
+            if (toka != 0 && toka != eka) {
+                x = eka + toka;
+                this.pisteet.put("kaksi paria", x);
+            }
+        }else{
+            this.pisteet.put("kaksi paria", 0);
+        }
+
+    }
+
+    public void kolmesamaa(List<Noppa> kasi) {
         int kolmesamaa = this.samojenLoytaja(kasi, "kolme");
         this.pisteet.put("kolmesamaa", kolmesamaa);
     }
-    
-    public void neljasamaa(List<Noppa> kasi){
+
+    public void neljasamaa(List<Noppa> kasi) {
         int neljasamaa = this.samojenLoytaja(kasi, "nelja");
         this.pisteet.put("neljasamaa", neljasamaa);
     }
-    
-    public void pieniSuora(List<Noppa> kasi){
-        
+
+    public void pieniSuora(List<Noppa> kasi) {
+        Collections.sort(kasi);
+        if (kasi.get(0).silmaluku() == 1 && kasi.get(1).silmaluku() == 2
+                && kasi.get(2).silmaluku() == 3 && kasi.get(3).silmaluku() == 4
+                && kasi.get(4).silmaluku() == 5) {
+            this.pisteet.put("pieni suora", 15);
+        } else {
+            this.pisteet.put("pieni suora", 0);
+        }
     }
-    
-    public void suuriSuora(List<Noppa> kasi){
-        
+
+    public void suuriSuora(List<Noppa> kasi) {
+        if (kasi.get(0).silmaluku() == 2 && kasi.get(1).silmaluku() == 3
+                && kasi.get(2).silmaluku() == 4 && kasi.get(3).silmaluku() == 5
+                && kasi.get(4).silmaluku() == 6) {
+            this.pisteet.put("suuri suora", 20);
+        } else {
+            this.pisteet.put("suuri suora", 0);
+        }
+
+    }
+
+    public void taysKasi(List<Noppa> kasi) {
+        Collections.sort(kasi);
+        int x = 0;
+        if (!kasi.get(0).equals(kasi.get(4)) && kasi.get(0).equals(kasi.get(1))
+                && kasi.get(2).equals(kasi.get(3).equals(kasi.get(4)))) {
+            for (Noppa noppa : kasi) {
+                x += noppa.silmaluku();
+            }
+        } else if (!kasi.get(0).equals(kasi.get(4)) && kasi.get(0).equals(kasi.get(1).equals(kasi.get(2)))
+                && kasi.get(3).equals(kasi.get(4))) {
+            for (Noppa noppa : kasi) {
+                x += noppa.silmaluku();
+            }
+        }
+        this.pisteet.put("täyskäsi", x);
+    }
+
+    public void sattuma(List<Noppa> kasi) {
+        int x = 0;
+        for (Noppa noppa : kasi) {
+            x += noppa.silmaluku();
+        }
+        pisteet.put("sattuma", x);
+
+    }
+
+    public void yatzy(List<Noppa> kasi) {
+        if (kasi.get(0).equals(kasi.get(1)) && kasi.get(1).equals(kasi.get(2))
+                && kasi.get(2).equals(kasi.get(3)) && kasi.get(3).equals(kasi.get(4))) {
+            this.pisteet.put("yatzy", 50);
+        } else {
+            this.pisteet.put("yatzy", 0);
+        }
+
     }
 
     public int pisteLaskuri(List<Noppa> kasi, Integer luku) {
