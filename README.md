@@ -7,9 +7,10 @@ Yatzi peli, yksin tai muita ihmisiä vastaan.
 
 [Tuntikirjanpito](/dokumentointi/tuntikirjanpito.md)
 
-[pit raportit](/dokumentointi/pit)
+[pit raportit](https://htmlpreview.github.io/?https://github.com/niklasad/Kniffel/blob/master/dokumentointi/pit/201703302251/index.html)
 
-[checkstyle raportit](/dokumentointi/checkstyle)
+[checkstyle raportit](https://htmlpreview.github.io/?https://github.com/niklasad/Kniffel/blob/master/dokumentointi/checkstyle/checkstyle.html)
+
 
 
 
