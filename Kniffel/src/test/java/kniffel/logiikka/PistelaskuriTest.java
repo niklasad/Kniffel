@@ -103,7 +103,7 @@ public class PistelaskuriTest {
 
     @Test
     public void nelosiinPisteita() {
-        this.silmalukujenAsettaja(4);        
+        this.silmalukujenAsettaja(4);
         assertEquals(20, testi.neloset(nopat));
     }
 

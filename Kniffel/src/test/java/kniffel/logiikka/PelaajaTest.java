@@ -53,17 +53,17 @@ public class PelaajaTest {
     public void tuloksenLisaaminenKasvattaaYhteisPisteita() {
         pelaaja.lisaaTulos("Ykköset", 4);
         assertEquals(4, pelaaja.getPisteet());
-    } 
-    
-    @Test 
-    public void kahdenTuloksenLisaaminenKasvattaaYhteispisteitaOikein(){
+    }
+
+    @Test
+    public void kahdenTuloksenLisaaminenKasvattaaYhteispisteitaOikein() {
         pelaaja.lisaaTulos("Kakkoset", 6);
-        pelaaja.lisaaTulos("Neloset",16);
+        pelaaja.lisaaTulos("Neloset", 16);
         assertEquals(22, pelaaja.getPisteet());
     }
-    
+
     @Test
-    public void kaytettyaTulostaEiVoiMuuttaa(){
+    public void kaytettyaTulostaEiVoiMuuttaa() {
         pelaaja.lisaaTulos("Kakkoset", 6);
         pelaaja.lisaaTulos("Kakkoset", 2);
         assertEquals(6, pelaaja.haeTulos("Kakkoset"));
@@ -75,7 +75,6 @@ public class PelaajaTest {
         pelaaja.lisaaTulos("kolmoset", 0);
         assertEquals(10, pelaaja.getPisteet());
     }
-
 
     @Test
     public void toStringToimii() {

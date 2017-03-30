@@ -24,8 +24,8 @@ public class Noppa implements Comparable<Noppa> {
     public void asetaSilmaluku(int luku) {
         this.silmaluku = luku;
     }
-    
-    public String toString(){
+
+    public String toString() {
         return "" + this.silmaluku;
     }
 

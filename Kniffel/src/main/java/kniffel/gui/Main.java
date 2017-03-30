@@ -27,7 +27,6 @@ public class Main {
         System.out.println(nopat);
         System.out.println(nikke);
 
-
 //        while (x < 150) {
 //            noppa.heitaNoppaa();
 //            System.out.println("Silmäluku: " + noppa.palautaSilmaluku());

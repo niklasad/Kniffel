@@ -32,16 +32,14 @@ public class Pelaaja {
     }
 
     public void lisaaTulos(String nimi, int pisteet) {
-        if(!this.tulokset.containsKey(nimi)){
+        if (!this.tulokset.containsKey(nimi)) {
             tulokset.put(nimi, pisteet);
             this.pisteet += pisteet;
         }
     }
-    
-    public int haeTulos(String nimi){
+
+    public int haeTulos(String nimi) {
         return tulokset.get(nimi);
     }
-    
-    
 
 }

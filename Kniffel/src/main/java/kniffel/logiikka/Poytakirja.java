@@ -12,11 +12,11 @@ import java.util.HashMap;
  * @author nakkilinux
  */
 public class Poytakirja {
-    
+
     private HashMap<Pelaaja, Pistelaskuri> poytakirja;
-    
-    public Poytakirja(){
-        this.poytakirja  = new HashMap();
-        
+
+    public Poytakirja() {
+        this.poytakirja = new HashMap();
+
     }
 }
