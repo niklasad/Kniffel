@@ -147,7 +147,7 @@ public class Pistelaskuri {
         return pisteet;
     }
 
-    public int samojenLoytaja(List<Noppa> kasi, String etsittava) {
+    public int parinLoytaja(List<Noppa> kasi, String etsittava) {
         int x = 6;
         int pisteet;
         while (true) {
