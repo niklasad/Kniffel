@@ -34,5 +34,17 @@ public class Pelialusta {
 
         }
     }
+    
+    public void heitaNopat() {
+        for (Noppa noppa : nopat) {
+            if (noppa.saastetaanko() == false) {
+                noppa.heitaNoppaa();
+            }
+        }
+    }
+    
+    public List<Noppa> getNopat(){
+        return this.nopat;
+    }
 
 }
