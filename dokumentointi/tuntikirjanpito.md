@@ -8,3 +8,4 @@ Päivä | Tunnit | Kuvaus
 29.01.2017 | 3 h | Koodin luomista/korjaamista jne.
 30.01.2017 | 4.5 h | Testien tekoa, luokkien korjailua, kaavioiden luomista ja raporttien tekoa
 04.04.2017 | 2 h | Käyttöliittymän tekoa
+05.04.2017 | 4 h | Käyttöliittymän jatkokehitystä
