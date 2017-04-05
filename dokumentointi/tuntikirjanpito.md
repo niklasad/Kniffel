@@ -7,3 +7,4 @@ Päivä | Tunnit | Kuvaus
 28.01.2017 | 2 h | Luokkien jatkokehitystä ja uusien luontia
 29.01.2017 | 3 h | Koodin luomista/korjaamista jne.
 30.01.2017 | 4.5 h | Testien tekoa, luokkien korjailua, kaavioiden luomista ja raporttien tekoa
+04.04.2017 | 2 h | Käyttöliittymän tekoa
