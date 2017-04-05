@@ -91,7 +91,9 @@ public class AloitusIkkuna extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aloitusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aloitusButtonMouseClicked
-        this.dispose();      // TODO add your handling code here:
+        this.dispose();  
+        new PeliIkkuna(alusta).setVisible(true);
+        
     }//GEN-LAST:event_aloitusButtonMouseClicked
    
     /**
