@@ -2,6 +2,7 @@ package kniffel.logiikka;
 
 import java.util.ArrayList;
 import java.util.List;
+import kniffel.gui.PeliIkkuna;
 
 /**
  *
@@ -15,6 +16,8 @@ public class Pelialusta {
     public Pelialusta() {
         this.nopat = new ArrayList();
         this.alustaNopat();
+        ;
+        this.pelaajat = new ArrayList<>();
     }
 
     private void alustaNopat() {
@@ -23,8 +26,11 @@ public class Pelialusta {
         }
     }
 
-    public void lisaaPelaajat(List<Pelaaja> pelaajat) {
-        this.pelaajat = pelaajat;
+    public void lisaaPelaaja(String nimi) {
+        if (this.pelaajat.size() < 5) {
+            this.pelaajat.add(new Pelaaja(nimi));
+        }
+
     }
 
     public void pelaaKierros() {
@@ -34,7 +40,7 @@ public class Pelialusta {
 
         }
     }
-    
+
     public void heitaNopat() {
         for (Noppa noppa : nopat) {
             if (noppa.saastetaanko() == false) {
@@ -42,8 +48,8 @@ public class Pelialusta {
             }
         }
     }
-    
-    public List<Noppa> getNopat(){
+
+    public List<Noppa> getNopat() {
         return this.nopat;
     }
 
