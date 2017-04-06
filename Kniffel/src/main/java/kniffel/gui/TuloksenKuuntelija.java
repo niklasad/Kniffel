@@ -27,9 +27,7 @@ public class TuloksenKuuntelija implements ActionListener {
     private List<JButton> nopat;
     private JButton tulos;
     private JLabel status;
-    private List<JButton> napit;
-    private int summa;
-    private int valiSumma;
+    private List<JButton> napit;       
 
     public TuloksenKuuntelija(Pelialusta a, JTable t, JButton h, List<JButton> n,
             JButton x, JLabel s, List<JButton> tulosNapit) {
@@ -40,7 +38,7 @@ public class TuloksenKuuntelija implements ActionListener {
         this.tulos = x;
         this.status = s;
         this.napit = tulosNapit;
-        this.summa = summa;
+        
 
     }
 
@@ -58,16 +56,11 @@ public class TuloksenKuuntelija implements ActionListener {
         int pisteet = alusta.getTulos(tulos.getText());
 
         alusta.getPelaajat().get(pelaaja).lisaaTulos(tulos.getText(), pisteet);
-        int summa = alusta.getPelaajat().get(pelaaja).getPisteet();
-        int valisumma = alusta.getPelaajat().get(pelaaja).getValiSumma();
+        int summa = alusta.getPelaajat().get(pelaaja).getPisteet();        
 
         this.taulukko.setValueAt(pisteet, getRow(), pelaaja);
-        this.taulukko.setValueAt(summa, 17, pelaaja);
-        this.taulukko.setValueAt(valiSumma, 6, pelaaja);
-        if (tarkistaHyvitys() == true) {
-            this.taulukko.setValueAt(50, 7, pelaaja);
-        }
-
+        this.taulukko.setValueAt(summa, 17, pelaaja);        
+        
         heittonappi.setEnabled(true);
         lukitseTulosNapit();
         alustaNopat();
@@ -98,19 +91,8 @@ public class TuloksenKuuntelija implements ActionListener {
             noppa.setEnabled(false);
             noppa.setBackground(Color.LIGHT_GRAY);
         }
-    }
-
-    private boolean tarkistaHyvitys() {
-        if (alusta.getPelaajat().get(alusta.getVuorossaOlevaPelaaja()).getValiSumma() >= 63) {
-            return true;
-        }
-        return false;
-    }
-
-    private int summa() {
-        return 0;
-    }
-
+    }    
+    
     public int getRow() {
         if (tulos.getText().equals("Ykköset")) {
             return 0;

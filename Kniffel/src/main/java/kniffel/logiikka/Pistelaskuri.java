@@ -18,6 +18,16 @@ public class Pistelaskuri {
 
     }
 
+    /**
+     * Kaikki seuraavat(ykkosista kutosiin) metodit laskevat pisteitä tietyllä
+     * noppakädellä tiettyyn "tulokseen" asetettuna pistelaskuri- metodia
+     * hyväksi käyttäen.
+     *
+     * @param kasi viiden nopan yhdistelmä
+     * @return palauttaa arvon, jonka noppayhdistelmä kyseisestä tuloksesta
+     * tuottaa. Esim. noppayhdistelmä 5, 1, 2, 4, 1 palauttaa ykkosista 2.
+     */
+
     public int ykkoset(List<Noppa> kasi) {
         int ykkoset = this.pisteLaskuri(kasi, 1);
         return ykkoset;
@@ -49,11 +59,25 @@ public class Pistelaskuri {
         return kutoset;
     }
 
+    /**
+     * laskee suurimman noppakäden sisältämän parin summan, jos paria ei löydy,
+     * palauttaa 0.
+     *
+     * @param kasi 5 nopan yhdistelmä
+     * @return pisteet jotka pari tuottaa
+     */
     public int pari(List<Noppa> kasi) {
         int pari = this.samojenLoytaja(kasi, 2);
         return pari;
     }
 
+    /**
+     * Etsii ensin yhden parin, jos löytää, poistaa parin noppalistalta, jotta
+     * samaa paria ei löydetä uudestaan, sitten etsii toisen parin.
+     *
+     * @param kasi 5 Nopan yhdistelmä
+     * @return pisteet. Jos paria ei löydy, palauttaa 0.
+     */
     public int kaksiParia(List<Noppa> kasi) {
         Noppa temp = new Noppa();
         int eka = this.samojenLoytaja(kasi, 2);
@@ -71,6 +95,14 @@ public class Pistelaskuri {
         return 0;
     }
 
+    /**
+     * Metodit kolmesamaa() ja neljasamaa() etsivät kolmen tai neljän nopan
+     * yhdistelmät mitä kädestä löytyy ja palauttavat niiden summan. Jos
+     * yhdistelmiä ei löydy, palauttavat 0.
+     *
+     * @param kasi
+     * @return
+     */
     public int kolmesamaa(List<Noppa> kasi) {
         int kolmesamaa = this.samojenLoytaja(kasi, 3);
         return kolmesamaa;
@@ -81,6 +113,13 @@ public class Pistelaskuri {
         return neljasamaa;
     }
 
+    /**
+     * Jos käsi sisältää silmäluvut 1,2,3,4 ja 5, metodi palauttaa pisteet 15,
+     * muuten 0
+     *
+     * @param kasi noppayhdistelmä
+     * @return pisteet
+     */
     public int pieniSuora(List<Noppa> kasi) {
         Collections.sort(kasi);
         if (kasi.get(0).silmaluku() == 1 && kasi.get(1).silmaluku() == 2
@@ -92,6 +131,12 @@ public class Pistelaskuri {
         }
     }
 
+    /**
+     * jos käsi sisältää silmäluvut 2,3,4,5 ja 6 palauttaa pisteet 20, muuten 0
+     *
+     * @param kasi noppayhdistelmä
+     * @return pisteet
+     */
     public int suuriSuora(List<Noppa> kasi) {
         Collections.sort(kasi);
         if (kasi.get(0).silmaluku() == 2 && kasi.get(1).silmaluku() == 3
@@ -104,6 +149,15 @@ public class Pistelaskuri {
         }
     }
 
+    /**
+     * etsii kädestä täyskättä, eli yhtä paria ja kolmea samaa lukua
+     * järjestämällä nopat suuruusjärjestykseen jolloin käden sisältäessä
+     * täyskäden joko 2 ensimmäistä ja 3 seuraavaa noppaa ovat samoja tai 3
+     * ensimmäistä ja 2 viimeistä ovat samoja.
+     *
+     * @param kasi Noppayhdistelmä
+     * @return palauttaa noppien summan jos täyskäsi löytyy, muuten 0
+     */
     public int tayskasi(List<Noppa> kasi) {
         Collections.sort(kasi);
         int x = 0;
@@ -117,6 +171,12 @@ public class Pistelaskuri {
         return x;
     }
 
+    /**
+     * palauttaa kaikkien noppien summan
+     *
+     * @param kasi
+     * @return
+     */
     public int sattuma(List<Noppa> kasi) {
         int x = 0;
         for (Noppa noppa : kasi) {
@@ -125,6 +185,12 @@ public class Pistelaskuri {
         return x;
     }
 
+    /**
+     * jos käsi sisältää 5 samaa lukua, palauttaa 50, muuten 0
+     *
+     * @param kasi
+     * @return
+     */
     public int yatzy(List<Noppa> kasi) {
         if (kasi.get(0).equals(kasi.get(1)) && kasi.get(1).equals(kasi.get(2))
                 && kasi.get(2).equals(kasi.get(3)) && kasi.get(3).equals(kasi.get(4))) {
@@ -135,6 +201,13 @@ public class Pistelaskuri {
 
     }
 
+    /**
+     * etsii kädestä kaikki tietyn luvun esiintymät ja summaa ne
+     *
+     * @param kasi 5 nopan yhdistelmä
+     * @param luku etsittävä luku
+     * @return luvun esiintymien summa
+     */
     public int pisteLaskuri(List<Noppa> kasi, Integer luku) {
         int pisteet = 0;
         for (Noppa noppa : kasi) {
@@ -145,6 +218,13 @@ public class Pistelaskuri {
         return pisteet;
     }
 
+    /**
+     * Etsii kädestä kutosesta alaspäin lähtien jonkin saman numeron esiintymiä
+     *
+     * @param kasi 5 nopan yhdistelmä
+     * @param monta monen nopan yhdistelmää kaivataan, esim. kolmea samaa
+     * @return palauttaa löytäessään suurimman löytyneen esim. kolmiluvun
+     */
     public int samojenLoytaja(List<Noppa> kasi, int monta) {
         Noppa vrt = new Noppa();
         int x = 6;
@@ -158,6 +238,14 @@ public class Pistelaskuri {
         return 0;
     }
 
+    /**
+     * palauttaa luvun, montako tiettyä noppaa, eli nopan silmälukua käsi
+     * sisältää
+     *
+     * @param nopat
+     * @param o haettu noppa(eli silmäluku)
+     * @return montako tiettyä silmälukua käsi sisältää
+     */
     public int montaSisaltaa(List<Noppa> nopat, Noppa o) {
         int monta = 0;
         for (Noppa noppa : nopat) {

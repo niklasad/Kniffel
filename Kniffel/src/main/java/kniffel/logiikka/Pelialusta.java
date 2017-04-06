@@ -5,6 +5,9 @@ import java.util.List;
 import kniffel.gui.PeliIkkuna;
 
 /**
+ * Pelialusta pitää peliä kasassa, laskee kierrokset, hallitsee noppia, pelaajia
+ * ja pistelaskuria
+ *
  *
  * @author nakkilinux
  */
@@ -25,12 +28,20 @@ public class Pelialusta {
         int pelaaja = 0;
     }
 
+    /**
+     * alustaa noppalistan, eli lisää sinne 5 noppaa
+     */
     private void alustaNopat() {
         for (int i = 0; i < 5; i++) {
             nopat.add(new Noppa());
         }
     }
 
+    /**
+     * lisää pelaajalistalle pelaajan jonka nimi on parametrin mukainen
+     *
+     * @param nimi
+     */
     public void lisaaPelaaja(String nimi) {
         if (this.pelaajat.size() < 4) {
             this.pelaajat.add(new Pelaaja(nimi));
@@ -38,6 +49,9 @@ public class Pelialusta {
 
     }
 
+    /**
+     * heittää noppalistan nopat, jos niitä ei ole asetettu säästettäväksi
+     */
     public void heitaNopat() {
         for (Noppa noppa : nopat) {
             if (noppa.saastetaanko() == false) {
@@ -54,6 +68,12 @@ public class Pelialusta {
         return this.pelaajat;
     }
 
+    /**
+     * metodi käyttää pistelaskuria ja palauttaa sieltä nimellä haetun tuloksen
+     *
+     * @param tulos
+     * @return
+     */
     public int getTulos(String tulos) {
         if (tulos.equals("Ykköset")) {
             return this.laskuri.ykkoset(nopat);
@@ -89,10 +109,19 @@ public class Pelialusta {
         return -1;
     }
 
+    /**
+     * palauttaa vuorossa olevan pelaajan sijainnin pelaajalistalla
+     *
+     * @return
+     */
     public int getVuorossaOlevaPelaaja() {
         return this.pelaaja;
     }
 
+    /**
+     * "Siirtää vuoroa" eli millä indeksillä pelaajalistalta haetaan pelaajaa,
+     * ja hyppää alkuun jos kierros on käyty
+     */
     public void seuraavaPelaaja() {
         int pelaajia = this.pelaajat.size() - 1;
         if (pelaaja < pelaajia) {

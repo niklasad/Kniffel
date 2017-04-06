@@ -3,6 +3,8 @@ package kniffel.logiikka;
 import java.util.Random;
 
 /**
+ * Noppaolio, joka saa randomnumeroita 1-6 välillä ja voi olla boolean arvolta
+ * lukittu
  *
  * @author nakkilinux
  */
@@ -21,6 +23,11 @@ public class Noppa implements Comparable<Noppa> {
         return this.silmaluku;
     }
 
+    /**
+     * asettaa manuaalisesti halutun silmäluvun (Lähinnä testejä varten)
+     *
+     * @param luku
+     */
     public void asetaSilmaluku(int luku) {
         this.silmaluku = luku;
     }
@@ -29,22 +36,40 @@ public class Noppa implements Comparable<Noppa> {
         return "" + this.silmaluku;
     }
 
+    /**
+     * arpoo nopalle uuden silmäluvun väliltä 1-6
+     */
     public void heitaNoppaa() {
         this.silmaluku = luku.nextInt(6) + 1;
     }
 
+    /**
+     * vaihtaa nopan "statusta". Jos lukittu = true, noppaa ei heitetä
+     * pelilaudan metodilla
+     */
     public void saasta() {
         if (this.lukittu == true) {
-            this.lukittu  = false;
+            this.lukittu = false;
         } else {
             this.lukittu = true;
         }
     }
 
+    /**
+     * palauttaa boolean arvon, joka nopalla kutsuntahetkellä on
+     *
+     * @return
+     */
     public boolean saastetaanko() {
         return this.lukittu;
     }
 
+    /**
+     * nopat ovat vertailukelpoisia keskenään silmäluvun perusteella
+     *
+     * @param o
+     * @return
+     */
     @Override
     public int compareTo(Noppa o) {
         return this.silmaluku() - o.silmaluku();
