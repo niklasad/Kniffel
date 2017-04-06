@@ -5,7 +5,8 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
-    <suppress files="/home/nakkilinux/Kniffel/Kniffel/Kniffel/src/main/java/kniffel/gui/Main.java" checks="[a-zA-Z0-9]*"/>    
-    <suppress files="/home/niklasad/Kniffel/Kniffel/src/main/java/kniffel/gui/AloitusIkkuna.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="/home/niklasad/Kniffel/Kniffel/src/main/java/kniffel/gui/PeliIkkuna.java" checks="[a-zA-Z0-9]*"/>    	
+    <suppress files="Main.java" checks="[a-zA-Z0-9]*"/>    
+    <suppress files="AloitusIkkuna.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="PeliIkkuna.java" checks="[a-zA-Z0-9]*"/>    	
+      	
 </suppressions>

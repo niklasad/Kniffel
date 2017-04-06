@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import kniffel.logiikka.Pelialusta;
 
 /**
+ * Kuuntelija nopan heittämiselle
  *
  * @author niklasad
  */

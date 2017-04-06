@@ -9,12 +9,14 @@ import javax.swing.JTextField;
 import kniffel.logiikka.Pelialusta;
 
 /**
+ * Graafinen käyttöliittymä ikkuna pelin aloitukselle ja pelaajien lisäykseen
  *
  * @author niklasad
  */
 public class AloitusIkkuna extends javax.swing.JFrame {
 
     private Pelialusta alusta;
+
     /**
      * Creates new form AloitusIkkuna
      */
@@ -103,11 +105,11 @@ public class AloitusIkkuna extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aloitusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aloitusButtonMouseClicked
-        this.dispose();  
+        this.dispose();
         new PeliIkkuna(alusta).setVisible(true);
-        
+
     }//GEN-LAST:event_aloitusButtonMouseClicked
-   
+
     /**
      * @param args the command line arguments
      */

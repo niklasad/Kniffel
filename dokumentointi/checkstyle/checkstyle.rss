@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 7,
+      <title>File: 10,
              Errors: 1,
              Warnings: 0,
              Infos: 0
@@ -47,6 +47,34 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#kniffel.logiikka.Noppa.java">kniffel/logiikka/Noppa.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#kniffel.gui.AloitusIkkuna.java">kniffel/gui/AloitusIkkuna.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#kniffel.gui.AloitusIkkunanKuuntelija.java">kniffel/gui/AloitusIkkunanKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +116,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#kniffel.logiikka.Heittovuoro.java">kniffel/logiikka/Heittovuoro.java</a>
+                  <a href="${project.url}/checkstyle.html#kniffel.gui.HeitonKuuntelija.java">kniffel/gui/HeitonKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#kniffel.gui.PeliIkkuna.java">kniffel/gui/PeliIkkuna.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +172,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#kniffel.logiikka.Poytakirja.java">kniffel/logiikka/Poytakirja.java</a>
+                  <a href="${project.url}/checkstyle.html#kniffel.gui.TuloksenKuuntelija.java">kniffel/gui/TuloksenKuuntelija.java</a>
                 </td>
                 <td>
                   0

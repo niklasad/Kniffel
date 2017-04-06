@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import kniffel.logiikka.Pelialusta;
 
 /**
+ * Kuuntelija aloitusikkunalle, joka lisää pelaajat pelialustalle
  *
  * @author niklasad
  */

@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import kniffel.logiikka.Pelialusta;
 
 /**
+ * Graafinen käyttöliittymä pelivaiheelle
  *
  * @author niklasad
  */

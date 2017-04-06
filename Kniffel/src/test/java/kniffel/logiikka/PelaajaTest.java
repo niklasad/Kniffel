@@ -85,6 +85,14 @@ public class PelaajaTest {
     public void tulostaEiLoydyPalauttaaJotain() {
         assertEquals(pelaaja.haeTulos("Ykköset"),-1);
     }
+    @Test
+    public void valiSummanTarkastajaToimii(){
+        pelaaja.lisaaTulos("Ykköset", 4);
+        pelaaja.lisaaTulos("Kakkoset", 6);
+        pelaaja.lisaaTulos("Neloset", 12);
+        pelaaja.lisaaTulos("Pari", 12);
+        assertEquals(22,pelaaja.getValiSumma());
+    }
 
     @After
     public void tearDown() {

@@ -9,6 +9,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * Luokka pelin pisteiden laskemiseen, metodit laskevat kustakin "tuloksesta"
+ * jollakin noppakädellä saatavat pisteet.
  *
  * @author niklasad
  */
@@ -27,7 +29,6 @@ public class Pistelaskuri {
      * @return palauttaa arvon, jonka noppayhdistelmä kyseisestä tuloksesta
      * tuottaa. Esim. noppayhdistelmä 5, 1, 2, 4, 1 palauttaa ykkosista 2.
      */
-
     public int ykkoset(List<Noppa> kasi) {
         int ykkoset = this.pisteLaskuri(kasi, 1);
         return ykkoset;
