@@ -7,7 +7,6 @@ package kniffel.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import kniffel.logiikka.Pelialusta;
 
@@ -17,7 +16,7 @@ import kniffel.logiikka.Pelialusta;
  */
 public class AloitusIkkunanKuuntelija implements ActionListener {
 
-    private JComboBox pelaajienMaara;
+    
     private Pelialusta alusta;
     private JTextField pelaaja;
     private int pelaajia;

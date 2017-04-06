@@ -34,8 +34,8 @@ public class Noppa implements Comparable<Noppa> {
     }
 
     public void saasta() {
-        if (this.lukittu = true) {
-            this.lukittu = false;
+        if (this.lukittu == true) {
+            this.lukittu  = false;
         } else {
             this.lukittu = true;
         }

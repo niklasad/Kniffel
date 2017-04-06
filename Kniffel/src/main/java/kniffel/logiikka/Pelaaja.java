@@ -40,6 +40,7 @@ public class Pelaaja {
 
     public int haeTulos(String nimi) {
         return tulokset.get(nimi);
-    }
+    }    
+   
 
 }

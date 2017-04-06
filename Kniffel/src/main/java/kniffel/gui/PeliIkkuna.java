@@ -5,6 +5,9 @@
  */
 package kniffel.gui;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JButton;
 import kniffel.logiikka.Pelialusta;
 
 /**
@@ -17,10 +20,15 @@ public class PeliIkkuna extends javax.swing.JFrame {
      * Creates new form Kayttoliittyma
      */
     private Pelialusta pelialusta;
+    private List<JButton> nopat;
+    
     
     public PeliIkkuna(Pelialusta alusta) {
         this.pelialusta  =  alusta;
+        this.nopat = new ArrayList<>();
         initComponents();
+        
+        
     }
 
     /**
@@ -52,12 +60,6 @@ public class PeliIkkuna extends javax.swing.JFrame {
         hyvitysLabel = new javax.swing.JLabel();
         summaLabel = new javax.swing.JLabel();
         pelaajaLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tulosTaulu = new javax.swing.JTable();
         Nopat = new javax.swing.JPanel();
@@ -132,30 +134,6 @@ public class PeliIkkuna extends javax.swing.JFrame {
         pelaajaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pelaajaLabel.setText("Pelaaja");
         pelaajaLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("jLabel1");
-        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("jLabel1");
-        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("jLabel1");
-        jLabel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("jLabel1");
-        jLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("jLabel1");
-        jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("jLabel1");
-        jLabel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         tulosTaulu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tulosTaulu.setModel(new javax.swing.table.DefaultTableModel(
@@ -234,84 +212,58 @@ public class PeliIkkuna extends javax.swing.JFrame {
                             .addComponent(yatsiButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(141, 141, 141)
-                .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(117, 117, 117))
+                .addGap(476, 476, 476))
         );
 
-        TuloksetLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {isoSuoraButton, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, kakkosetButton, kaksiPariaButton, kolmesamaaButton, kolmosetButton, kutosetButton, neljasamaaButton, nelosetButton, pariButton, sattumaButton, suoraButton, takariButton, viitosetButton, yatsiButton, ykkosetButton});
+        TuloksetLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {isoSuoraButton, kakkosetButton, kaksiPariaButton, kolmesamaaButton, kolmosetButton, kutosetButton, neljasamaaButton, nelosetButton, pariButton, sattumaButton, suoraButton, takariButton, viitosetButton, yatsiButton, ykkosetButton});
 
         TuloksetLayout.setVerticalGroup(
             TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TuloksetLayout.createSequentialGroup()
                 .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TuloksetLayout.createSequentialGroup()
-                        .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TuloksetLayout.createSequentialGroup()
-                                .addGap(201, 201, 201)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(TuloksetLayout.createSequentialGroup()
-                                .addComponent(pelaajaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ykkosetButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kakkosetButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(kolmosetButton))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(nelosetButton)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(viitosetButton)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(kutosetButton)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(valisummaLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(hyvitysLabel)
-                                .addGap(8, 8, 8)
-                                .addComponent(pariButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kaksiPariaButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(suoraButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(isoSuoraButton)
-                                .addGap(11, 11, 11)
-                                .addComponent(kolmesamaaButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(neljasamaaButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(takariButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sattumaButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(yatsiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, TuloksetLayout.createSequentialGroup()
+                        .addComponent(pelaajaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ykkosetButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(kakkosetButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(kolmosetButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nelosetButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(viitosetButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(kutosetButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(valisummaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hyvitysLabel)
+                        .addGap(8, 8, 8)
+                        .addComponent(pariButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(kaksiPariaButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(suoraButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(isoSuoraButton)
+                        .addGap(11, 11, 11)
+                        .addComponent(kolmesamaaButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(neljasamaaButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(takariButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sattumaButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(yatsiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(summaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        TuloksetLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {hyvitysLabel, isoSuoraButton, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, kakkosetButton, kaksiPariaButton, kolmesamaaButton, kolmosetButton, kutosetButton, neljasamaaButton, nelosetButton, pariButton, sattumaButton, suoraButton, takariButton, valisummaLabel, viitosetButton, ykkosetButton});
+        TuloksetLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {hyvitysLabel, isoSuoraButton, kakkosetButton, kaksiPariaButton, kolmesamaaButton, kolmosetButton, kutosetButton, neljasamaaButton, nelosetButton, pariButton, sattumaButton, suoraButton, takariButton, valisummaLabel, viitosetButton, ykkosetButton});
 
         Nopat.setBackground(java.awt.Color.white);
         Nopat.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -322,6 +274,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
                 noppa1ButtonActionPerformed(evt);
             }
         });
+        this.nopat.add(noppa1Button);
 
         noppa2Button.setText("Noppa2");
         noppa2Button.addActionListener(new java.awt.event.ActionListener() {
@@ -329,6 +282,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
                 noppa2ButtonActionPerformed(evt);
             }
         });
+        this.nopat.add(noppa2Button);
 
         noppa3Button.setText("Noppa3");
         noppa3Button.addActionListener(new java.awt.event.ActionListener() {
@@ -336,6 +290,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
                 noppa3ButtonActionPerformed(evt);
             }
         });
+        this.nopat.add(noppa3Button);
 
         noppa4Button.setText("Noppa4");
         noppa4Button.addActionListener(new java.awt.event.ActionListener() {
@@ -343,6 +298,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
                 noppa4ButtonActionPerformed(evt);
             }
         });
+        this.nopat.add(noppa4Button);
 
         noppa5Button.setText("Noppa5");
         noppa5Button.addActionListener(new java.awt.event.ActionListener() {
@@ -350,13 +306,10 @@ public class PeliIkkuna extends javax.swing.JFrame {
                 noppa5ButtonActionPerformed(evt);
             }
         });
+        this.nopat.add(noppa5Button);
 
         heittoButton.setText("Heitä nopat!");
-        heittoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                heittoButtonActionPerformed(evt);
-            }
-        });
+        this.heittoButton.addActionListener(new HeitonKuuntelija(this.pelialusta, this.nopat, heittoButton, statusLabel));
 
         javax.swing.GroupLayout NopatLayout = new javax.swing.GroupLayout(Nopat);
         Nopat.setLayout(NopatLayout);
@@ -399,7 +352,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Tulokset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Tulokset, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Nopat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -430,21 +383,12 @@ public class PeliIkkuna extends javax.swing.JFrame {
         this.pelialusta.getNopat().get(0).saasta();// TODO add your handling code here:
     }//GEN-LAST:event_noppa1ButtonActionPerformed
 
-    private void heittoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heittoButtonActionPerformed
-        this.pelialusta.heitaNopat();
-        noppa1Button.setLabel(pelialusta.getNopat().get(0).toString());
-        noppa2Button.setLabel(pelialusta.getNopat().get(1).toString());
-        noppa3Button.setLabel(pelialusta.getNopat().get(2).toString());
-        noppa4Button.setLabel(pelialusta.getNopat().get(3).toString());
-        noppa5Button.setLabel(pelialusta.getNopat().get(4).toString());
-    }//GEN-LAST:event_heittoButtonActionPerformed
-
     private void noppa2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noppa2ButtonActionPerformed
         this.pelialusta.getNopat().get(1).saasta();
     }//GEN-LAST:event_noppa2ButtonActionPerformed
 
     private void noppa3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noppa3ButtonActionPerformed
-        this.pelialusta.getNopat().get(2).saasta();        // TODO add your handling code here:
+        this.pelialusta.getNopat().get(2).saasta();        
     }//GEN-LAST:event_noppa3ButtonActionPerformed
 
     private void noppa4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noppa4ButtonActionPerformed
@@ -501,12 +445,6 @@ public class PeliIkkuna extends javax.swing.JFrame {
     private javax.swing.JButton heittoButton;
     private javax.swing.JLabel hyvitysLabel;
     private javax.swing.JButton isoSuoraButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton kakkosetButton;
     private javax.swing.JButton kaksiPariaButton;

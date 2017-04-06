@@ -12,12 +12,15 @@ public class Pelialusta {
 
     private List<Pelaaja> pelaajat;
     private List<Noppa> nopat;
+    private Pistelaskuri laskuri;
+    private int kierros;
 
     public Pelialusta() {
         this.nopat = new ArrayList();
         this.alustaNopat();
-        ;
         this.pelaajat = new ArrayList<>();
+        this.laskuri = new Pistelaskuri();
+        this.kierros = 0;
     }
 
     private void alustaNopat() {
@@ -31,15 +34,7 @@ public class Pelialusta {
             this.pelaajat.add(new Pelaaja(nimi));
         }
 
-    }
-
-    public void pelaaKierros() {
-        for (Pelaaja pelaaja : pelaajat) {
-            Heittovuoro vuoro = new Heittovuoro(pelaaja, nopat);
-            vuoro.run();
-
-        }
-    }
+    }    
 
     public void heitaNopat() {
         for (Noppa noppa : nopat) {
@@ -51,6 +46,10 @@ public class Pelialusta {
 
     public List<Noppa> getNopat() {
         return this.nopat;
+    }
+
+    public List<Pelaaja> getPelaajat() {
+        return this.pelaajat;
     }
 
 }
