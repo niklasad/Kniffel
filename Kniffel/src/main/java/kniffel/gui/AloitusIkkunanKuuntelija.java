@@ -16,7 +16,6 @@ import kniffel.logiikka.Pelialusta;
  */
 public class AloitusIkkunanKuuntelija implements ActionListener {
 
-    
     private Pelialusta alusta;
     private JTextField pelaaja;
     private int pelaajia;
@@ -33,7 +32,7 @@ public class AloitusIkkunanKuuntelija implements ActionListener {
         pelaajia++;
         if (pelaajia < 4) {
             pelaaja.setText("Pelaaja lisätty! Syötä seuraava pelaaja");
-        }else{
+        } else {
             pelaaja.setText("Et voi lisätä enempää pelaajia");
         }
     }

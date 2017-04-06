@@ -20,7 +20,7 @@ public class Pelaaja {
     }
 
     public String toString() {
-        return this.nimi + ", pisteet: " + this.pisteet;
+        return "" + this.nimi;
     }
 
     public String getNimi() {
@@ -39,8 +39,10 @@ public class Pelaaja {
     }
 
     public int haeTulos(String nimi) {
-        return tulokset.get(nimi);
-    }    
-   
+        if (tulokset.containsKey(nimi)) {
+            return tulokset.get(nimi);
+        }
+        return -1;
+    }
 
 }

@@ -61,4 +61,23 @@ public class NoppaTest {
         }
     }
 
+    @Test
+    public void noppaEiLukittuAluksi() {
+        assertEquals(false, noppa.saastetaanko());
+    }
+
+    @Test
+    public void nopanLukitusToimii() {
+        noppa.saasta();
+        assertEquals(true, noppa.saastetaanko());
+    }
+
+    @Test
+    public void nopanAntiLukitusToimii() {
+        noppa.saasta();
+        noppa.saasta();
+        assertEquals(false, noppa.saastetaanko());
+    }
+    
+
 }

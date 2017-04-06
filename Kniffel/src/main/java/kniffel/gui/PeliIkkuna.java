@@ -5,6 +5,7 @@
  */
 package kniffel.gui;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -21,14 +22,14 @@ public class PeliIkkuna extends javax.swing.JFrame {
      */
     private Pelialusta pelialusta;
     private List<JButton> nopat;
-    
-    
+    private List<JButton> tulosNapit;
+
     public PeliIkkuna(Pelialusta alusta) {
-        this.pelialusta  =  alusta;
+        this.pelialusta = alusta;
         this.nopat = new ArrayList<>();
+        this.tulosNapit = new ArrayList<>();
         initComponents();
-        
-        
+
     }
 
     /**
@@ -61,7 +62,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         summaLabel = new javax.swing.JLabel();
         pelaajaLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tulosTaulu = new javax.swing.JTable();
+        tulosTable = new javax.swing.JTable();
         Nopat = new javax.swing.JPanel();
         noppa1Button = new javax.swing.JButton();
         noppa2Button = new javax.swing.JButton();
@@ -77,44 +78,56 @@ public class PeliIkkuna extends javax.swing.JFrame {
         Tulokset.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         ykkosetButton.setText("Ykköset");
-        ykkosetButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ykkosetButtonMouseClicked(evt);
-            }
-        });
-        ykkosetButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ykkosetButtonActionPerformed(evt);
-            }
-        });
+        ykkosetButton.setEnabled(false);
+        ykkosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, ykkosetButton, statusLabel, tulosNapit));
 
         kakkosetButton.setText("Kakkoset");
+        kakkosetButton.setEnabled(false);
+        kakkosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, kakkosetButton, statusLabel, tulosNapit));
 
         kolmosetButton.setText("Kolmoset");
+        kolmosetButton.setEnabled(false);
+        kolmosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, kolmosetButton, statusLabel, tulosNapit));
 
         nelosetButton.setText("Neloset");
+        nelosetButton.setEnabled(false);
+        nelosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, nelosetButton, statusLabel, tulosNapit));
 
         viitosetButton.setText("Viitoset");
+        viitosetButton.setEnabled(false);
+        viitosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, viitosetButton, statusLabel, tulosNapit));
 
         kutosetButton.setText("Kutoset");
+        kutosetButton.setEnabled(false);
+        kutosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, kutosetButton, statusLabel, tulosNapit));
 
         pariButton.setText("Pari");
+        pariButton.setEnabled(false);
 
         kaksiPariaButton.setText("Kaksi paria");
+        kaksiPariaButton.setEnabled(false);
 
         suoraButton.setText("Pieni suora");
+        suoraButton.setEnabled(false);
 
         isoSuoraButton.setText("Suuri suora");
+        isoSuoraButton.setEnabled(false);
 
         kolmesamaaButton.setText("Kolme samaa");
+        kolmesamaaButton.setEnabled(false);
 
         neljasamaaButton.setText("Neljä samaa");
+        neljasamaaButton.setEnabled(false);
 
         takariButton.setText("Täyskäsi");
+        takariButton.setEnabled(false);
 
         sattumaButton.setText("Sattuma");
+        sattumaButton.setEnabled(false);
 
         yatsiButton.setText("Kniffel");
+        yatsiButton.setEnabled(false);
+        this.napitListalle();
 
         valisummaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         valisummaLabel.setText("Välisumma");
@@ -135,8 +148,9 @@ public class PeliIkkuna extends javax.swing.JFrame {
         pelaajaLabel.setText("Pelaaja");
         pelaajaLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        tulosTaulu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tulosTaulu.setModel(new javax.swing.table.DefaultTableModel(
+        tulosTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tulosTable.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        tulosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -176,9 +190,9 @@ public class PeliIkkuna extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tulosTaulu.setRowHeight(36);
-        tulosTaulu.setRowSelectionAllowed(false);
-        jScrollPane2.setViewportView(tulosTaulu);
+        tulosTable.setRowHeight(36);
+        tulosTable.setRowSelectionAllowed(false);
+        jScrollPane2.setViewportView(tulosTable);
 
         javax.swing.GroupLayout TuloksetLayout = new javax.swing.GroupLayout(Tulokset);
         Tulokset.setLayout(TuloksetLayout);
@@ -211,8 +225,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
                             .addComponent(sattumaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(yatsiButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(476, 476, 476))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(643, 643, 643))
         );
 
         TuloksetLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {isoSuoraButton, kakkosetButton, kaksiPariaButton, kolmesamaaButton, kolmosetButton, kutosetButton, neljasamaaButton, nelosetButton, pariButton, sattumaButton, suoraButton, takariButton, viitosetButton, yatsiButton, ykkosetButton});
@@ -269,6 +283,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         Nopat.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         noppa1Button.setText("Noppa1");
+        noppa1Button.setEnabled(false);
         noppa1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 noppa1ButtonActionPerformed(evt);
@@ -277,6 +292,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         this.nopat.add(noppa1Button);
 
         noppa2Button.setText("Noppa2");
+        noppa2Button.setEnabled(false);
         noppa2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 noppa2ButtonActionPerformed(evt);
@@ -285,6 +301,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         this.nopat.add(noppa2Button);
 
         noppa3Button.setText("Noppa3");
+        noppa3Button.setEnabled(false);
         noppa3Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 noppa3ButtonActionPerformed(evt);
@@ -293,6 +310,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         this.nopat.add(noppa3Button);
 
         noppa4Button.setText("Noppa4");
+        noppa4Button.setEnabled(false);
         noppa4Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 noppa4ButtonActionPerformed(evt);
@@ -301,6 +319,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         this.nopat.add(noppa4Button);
 
         noppa5Button.setText("Noppa5");
+        noppa5Button.setEnabled(false);
         noppa5Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 noppa5ButtonActionPerformed(evt);
@@ -309,7 +328,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         this.nopat.add(noppa5Button);
 
         heittoButton.setText("Heitä nopat!");
-        this.heittoButton.addActionListener(new HeitonKuuntelija(this.pelialusta, this.nopat, heittoButton, statusLabel));
+        this.heittoButton.addActionListener(new HeitonKuuntelija(this.pelialusta, this.nopat, heittoButton, statusLabel, tulosNapit));
 
         javax.swing.GroupLayout NopatLayout = new javax.swing.GroupLayout(Nopat);
         Nopat.setLayout(NopatLayout);
@@ -344,7 +363,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        statusLabel.setText("           Status");
+        statusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        statusLabel.setText(pelialusta.getPelaajat().get(pelialusta.getVuorossaOlevaPelaaja()) + " heittää!");
         statusLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -352,7 +372,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Tulokset, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Tulokset, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Nopat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -375,34 +395,67 @@ public class PeliIkkuna extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ykkosetButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ykkosetButtonMouseClicked
-        this.tulosTaulu.setValueAt((Integer) 3, 0, 0);// TODO add your handling code here:
-    }//GEN-LAST:event_ykkosetButtonMouseClicked
-
     private void noppa1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noppa1ButtonActionPerformed
-        this.pelialusta.getNopat().get(0).saasta();// TODO add your handling code here:
+        this.pelialusta.getNopat().get(0).saasta();
+        if (this.pelialusta.getNopat().get(0).saastetaanko() == true) {
+            noppa1Button.setBackground(Color.red);
+        } else {
+            noppa1Button.setBackground(Color.LIGHT_GRAY);
+        }
     }//GEN-LAST:event_noppa1ButtonActionPerformed
 
     private void noppa2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noppa2ButtonActionPerformed
         this.pelialusta.getNopat().get(1).saasta();
+        if (this.pelialusta.getNopat().get(1).saastetaanko() == true) {
+            noppa2Button.setBackground(Color.red);
+        } else {
+            noppa2Button.setBackground(Color.LIGHT_GRAY);
+        }
     }//GEN-LAST:event_noppa2ButtonActionPerformed
 
     private void noppa3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noppa3ButtonActionPerformed
-        this.pelialusta.getNopat().get(2).saasta();        
+        this.pelialusta.getNopat().get(2).saasta();
+        if (this.pelialusta.getNopat().get(2).saastetaanko() == true) {
+            noppa3Button.setBackground(Color.red);
+        } else {
+            noppa3Button.setBackground(Color.LIGHT_GRAY);
+        }
     }//GEN-LAST:event_noppa3ButtonActionPerformed
 
     private void noppa4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noppa4ButtonActionPerformed
-        this.pelialusta.getNopat().get(3).saasta();        // TODO add your handling code here:
+        this.pelialusta.getNopat().get(3).saasta();
+        if (this.pelialusta.getNopat().get(3).saastetaanko() == true) {
+            noppa4Button.setBackground(Color.red);
+        } else {
+            noppa4Button.setBackground(Color.LIGHT_GRAY);
+        }// TODO add your handling code here:
     }//GEN-LAST:event_noppa4ButtonActionPerformed
 
     private void noppa5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noppa5ButtonActionPerformed
-        this.pelialusta.getNopat().get(4).saasta();        // TODO add your handling code here:
+        this.pelialusta.getNopat().get(4).saasta();
+        if (this.pelialusta.getNopat().get(4).saastetaanko() == true) {
+            noppa5Button.setBackground(Color.red);
+        } else {
+            noppa5Button.setBackground(Color.LIGHT_GRAY);
+        }// TODO add your handling code here:
     }//GEN-LAST:event_noppa5ButtonActionPerformed
-
-    private void ykkosetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ykkosetButtonActionPerformed
-            // TODO add your handling code here:
-    }//GEN-LAST:event_ykkosetButtonActionPerformed
-
+    private void napitListalle() {
+        tulosNapit.add(ykkosetButton);
+        tulosNapit.add(kakkosetButton);
+        tulosNapit.add(kolmosetButton);
+        tulosNapit.add(nelosetButton);
+        tulosNapit.add(viitosetButton);
+        tulosNapit.add(kutosetButton);
+        tulosNapit.add(pariButton);
+        tulosNapit.add(kaksiPariaButton);
+        tulosNapit.add(suoraButton);
+        tulosNapit.add(isoSuoraButton);
+        tulosNapit.add(kolmesamaaButton);
+        tulosNapit.add(neljasamaaButton);
+        tulosNapit.add(takariButton);
+        tulosNapit.add(sattumaButton);
+        tulosNapit.add(yatsiButton);
+    }
     /**
      * @param args the command line arguments
      */
@@ -465,7 +518,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
     private javax.swing.JLabel summaLabel;
     private javax.swing.JButton suoraButton;
     private javax.swing.JButton takariButton;
-    private javax.swing.JTable tulosTaulu;
+    private javax.swing.JTable tulosTable;
     private javax.swing.JLabel valisummaLabel;
     private javax.swing.JButton viitosetButton;
     private javax.swing.JButton yatsiButton;

@@ -25,7 +25,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="Tulokset" min="-2" pref="593" max="-2" attributes="0"/>
+              <Component id="Tulokset" min="-2" pref="430" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="Nopat" max="32767" attributes="0"/>
@@ -96,8 +96,8 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="476" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="299" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="643" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -155,81 +155,113 @@
         <Component class="javax.swing.JButton" name="ykkosetButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ykk&#xf6;set"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ykkosetButtonMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ykkosetButtonActionPerformed"/>
-          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="ykkosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, ykkosetButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="kakkosetButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kakkoset"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="kakkosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, kakkosetButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="kolmosetButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kolmoset"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="kolmosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, kolmosetButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="nelosetButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Neloset"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="nelosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, nelosetButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="viitosetButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Viitoset"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="viitosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, viitosetButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="kutosetButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kutoset"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="kutosetButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, kutosetButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="pariButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pari"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="kaksiPariaButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kaksi paria"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="suoraButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pieni suora"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="isoSuoraButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Suuri suora"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="kolmesamaaButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kolme samaa"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="neljasamaaButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nelj&#xe4; samaa"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="takariButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="T&#xe4;ysk&#xe4;si"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="sattumaButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sattuma"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="yatsiButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kniffel"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="this.napitListalle();"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="valisummaLabel">
           <Properties>
@@ -287,12 +319,15 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="tulosTaulu">
+            <Component class="javax.swing.JTable" name="tulosTable">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder/>
                   </Border>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Noto Sans" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="18">
@@ -390,6 +425,7 @@
         <Component class="javax.swing.JButton" name="noppa1Button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Noppa1"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noppa1ButtonActionPerformed"/>
@@ -401,6 +437,7 @@
         <Component class="javax.swing.JButton" name="noppa2Button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Noppa2"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noppa2ButtonActionPerformed"/>
@@ -412,6 +449,7 @@
         <Component class="javax.swing.JButton" name="noppa3Button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Noppa3"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noppa3ButtonActionPerformed"/>
@@ -423,6 +461,7 @@
         <Component class="javax.swing.JButton" name="noppa4Button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Noppa4"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noppa4ButtonActionPerformed"/>
@@ -434,6 +473,7 @@
         <Component class="javax.swing.JButton" name="noppa5Button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Noppa5"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noppa5ButtonActionPerformed"/>
@@ -447,14 +487,17 @@
             <Property name="text" type="java.lang.String" value="Heit&#xe4; nopat!"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="this.heittoButton.addActionListener(new HeitonKuuntelija(this.pelialusta, this.nopat, heittoButton, statusLabel));&#xa;"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="this.heittoButton.addActionListener(new HeitonKuuntelija(this.pelialusta, this.nopat, heittoButton, statusLabel, tulosNapit));"/>
           </AuxValues>
         </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="statusLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="           Status"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="pelialusta.getPelaajat().get(pelialusta.getVuorossaOlevaPelaaja()) + &quot; heitt&#xe4;&#xe4;!&quot;" type="code"/>
+        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
             <LineBorder roundedCorners="true" thickness="2"/>

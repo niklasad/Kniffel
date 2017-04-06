@@ -78,7 +78,12 @@ public class PelaajaTest {
 
     @Test
     public void toStringToimii() {
-        assertEquals("pelaaja1, pisteet: 0", pelaaja.toString());
+        assertEquals("pelaaja1", pelaaja.toString());
+    }
+
+    @Test
+    public void tulostaEiLoydyPalauttaaJotain() {
+        assertEquals(pelaaja.haeTulos("Ykköset"),-1);
     }
 
     @After

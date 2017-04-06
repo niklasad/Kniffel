@@ -23,23 +23,28 @@ public class HeitonKuuntelija implements ActionListener {
     private int heitto;
     private JButton heittoNappi;
     private JLabel status;
+    private List<JButton> napit;
 
-    public HeitonKuuntelija(Pelialusta a, List<JButton> nopat, JButton b, JLabel s) {
+    public HeitonKuuntelija(Pelialusta a, List<JButton> nopat, JButton b, JLabel s, List<JButton> n) {
         this.alusta = a;
         this.nopat = nopat;
         this.heitto = 0;
         this.heittoNappi = b;
         this.status = s;
+        this.napit = n;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (heitto < 2) {
+            if (heitto == 0) {
+                vapautaNopat();
+            }
             this.heitaJaPaivitaNopat();
-            this.status.setText("Heitä uudestaan!");
         } else {
             this.heitaJaPaivitaNopat();
             this.heittoNappi.setEnabled(false);
+            vapautaTulosNapit();
             this.status.setText("Aseta pisteet");
             this.heitto = 0;
         }
@@ -53,6 +58,27 @@ public class HeitonKuuntelija implements ActionListener {
         for (JButton noppa : nopat) {
             noppa.setText(alusta.getNopat().get(x).toString());
             x++;
+        }
+        paivitaStatus();
+    }
+
+    private void vapautaTulosNapit() {
+        for (JButton nappi : napit) {
+            nappi.setEnabled(true);
+        }
+    }
+
+    private void vapautaNopat() {
+        for (JButton noppa : nopat) {
+            noppa.setEnabled(true);
+        }
+    }
+
+    private void paivitaStatus() {
+        if (this.heitto == 1) {
+            this.status.setText("2 heittoa jäljellä");
+        } else if (this.heitto == 2) {
+            this.status.setText("1 heitto jäljellä");
         }
     }
 
