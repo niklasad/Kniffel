@@ -28,8 +28,11 @@ public class TuloksenKuuntelija implements ActionListener {
     private JButton tulos;
     private JLabel status;
     private List<JButton> napit;
+    private int summa;
+    private int valiSumma;
 
-    public TuloksenKuuntelija(Pelialusta a, JTable t, JButton h, List<JButton> n, JButton x, JLabel s, List<JButton> tulosNapit) {
+    public TuloksenKuuntelija(Pelialusta a, JTable t, JButton h, List<JButton> n,
+            JButton x, JLabel s, List<JButton> tulosNapit) {
         this.alusta = a;
         this.taulukko = t;
         this.heittonappi = h;
@@ -37,23 +40,38 @@ public class TuloksenKuuntelija implements ActionListener {
         this.tulos = x;
         this.status = s;
         this.napit = tulosNapit;
+        this.summa = summa;
 
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        int pelaaja = alusta.getVuorossaOlevaPelaaja();
-        int pisteet = alusta.getTulos(tulos.getText());
         if (this.onkoKaytetty() == false) {
-            alusta.getPelaajat().get(pelaaja).lisaaTulos(tulos.getText(), pisteet);
-            this.taulukko.setValueAt(pisteet, getRow(), alusta.getVuorossaOlevaPelaaja());
-            heittonappi.setEnabled(true);
-            lukitseTulosNapit();
-            alustaNopat();
-            status.setText(alusta.getPelaajat().get(pelaaja) + " heittää!");
+            asetaTulokset();
         } else {
             status.setText("Tulos on jo käytetty");
         }
+    }
+
+    public void asetaTulokset() {
+        int pelaaja = alusta.getVuorossaOlevaPelaaja();
+        int pisteet = alusta.getTulos(tulos.getText());
+
+        alusta.getPelaajat().get(pelaaja).lisaaTulos(tulos.getText(), pisteet);
+        int summa = alusta.getPelaajat().get(pelaaja).getPisteet();
+        int valisumma = alusta.getPelaajat().get(pelaaja).getValiSumma();
+
+        this.taulukko.setValueAt(pisteet, getRow(), pelaaja);
+        this.taulukko.setValueAt(summa, 17, pelaaja);
+        this.taulukko.setValueAt(valiSumma, 6, pelaaja);
+        if (tarkistaHyvitys() == true) {
+            this.taulukko.setValueAt(50, 7, pelaaja);
+        }
+
+        heittonappi.setEnabled(true);
+        lukitseTulosNapit();
+        alustaNopat();
+        status.setText(alusta.getPelaajat().get(pelaaja) + " heittää!");
     }
 
     public boolean onkoKaytetty() {
@@ -82,12 +100,11 @@ public class TuloksenKuuntelija implements ActionListener {
         }
     }
 
-    private int valisumma() {
-        return 0;
-    }
-
-    private void tarkistaHyvitys() {
-
+    private boolean tarkistaHyvitys() {
+        if (alusta.getPelaajat().get(alusta.getVuorossaOlevaPelaaja()).getValiSumma() >= 63) {
+            return true;
+        }
+        return false;
     }
 
     private int summa() {
@@ -108,23 +125,23 @@ public class TuloksenKuuntelija implements ActionListener {
         } else if (tulos.getText().equals("Kutoset")) {
             return 5;
         } else if (tulos.getText().equals("Pari")) {
-            return 6;
-        } else if (tulos.getText().equals("Kaksi paria")) {
-            return 7;
-        } else if (tulos.getText().equals("Pieni suora")) {
             return 8;
-        } else if (tulos.getText().equals("Suuri suora")) {
+        } else if (tulos.getText().equals("Kaksi paria")) {
             return 9;
-        } else if (tulos.getText().equals("Kolme samaa")) {
+        } else if (tulos.getText().equals("Pieni suora")) {
             return 10;
-        } else if (tulos.getText().equals("Neljä samaa")) {
+        } else if (tulos.getText().equals("Suuri suora")) {
             return 11;
-        } else if (tulos.getText().equals("Täyskäsi")) {
+        } else if (tulos.getText().equals("Kolme samaa")) {
             return 12;
-        } else if (tulos.getText().equals("Sattuma")) {
+        } else if (tulos.getText().equals("Neljä samaa")) {
             return 13;
-        } else if (tulos.getText().equals("Kniffel")) {
+        } else if (tulos.getText().equals("Täyskäsi")) {
             return 14;
+        } else if (tulos.getText().equals("Sattuma")) {
+            return 15;
+        } else if (tulos.getText().equals("Kniffel")) {
+            return 16;
         } else {
             return -1;
         }

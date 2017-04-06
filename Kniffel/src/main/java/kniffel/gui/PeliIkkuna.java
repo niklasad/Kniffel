@@ -103,30 +103,40 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
         pariButton.setText("Pari");
         pariButton.setEnabled(false);
+        pariButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, pariButton, statusLabel, tulosNapit));
 
         kaksiPariaButton.setText("Kaksi paria");
         kaksiPariaButton.setEnabled(false);
+        kaksiPariaButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, kaksiPariaButton, statusLabel, tulosNapit));
 
         suoraButton.setText("Pieni suora");
         suoraButton.setEnabled(false);
+        suoraButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, suoraButton, statusLabel, tulosNapit));
 
         isoSuoraButton.setText("Suuri suora");
         isoSuoraButton.setEnabled(false);
+        isoSuoraButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, isoSuoraButton, statusLabel, tulosNapit));
 
         kolmesamaaButton.setText("Kolme samaa");
         kolmesamaaButton.setEnabled(false);
+        kolmesamaaButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, kolmesamaaButton, statusLabel, tulosNapit));
 
         neljasamaaButton.setText("Neljä samaa");
         neljasamaaButton.setEnabled(false);
+        neljasamaaButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, neljasamaaButton, statusLabel, tulosNapit));
 
         takariButton.setText("Täyskäsi");
         takariButton.setEnabled(false);
+        takariButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, takariButton, statusLabel, tulosNapit));
 
         sattumaButton.setText("Sattuma");
         sattumaButton.setEnabled(false);
+        sattumaButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, sattumaButton, statusLabel, tulosNapit));
 
         yatsiButton.setText("Kniffel");
         yatsiButton.setEnabled(false);
+        yatsiButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, yatsiButton, statusLabel, tulosNapit));
+
         this.napitListalle();
 
         valisummaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

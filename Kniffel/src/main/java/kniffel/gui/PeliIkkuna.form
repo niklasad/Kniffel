@@ -211,48 +211,72 @@
             <Property name="text" type="java.lang.String" value="Pari"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="pariButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, pariButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="kaksiPariaButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kaksi paria"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="kaksiPariaButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, kaksiPariaButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="suoraButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pieni suora"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="suoraButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, suoraButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="isoSuoraButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Suuri suora"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="isoSuoraButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, isoSuoraButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="kolmesamaaButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kolme samaa"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="kolmesamaaButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, kolmesamaaButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="neljasamaaButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nelj&#xe4; samaa"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="neljasamaaButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, neljasamaaButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="takariButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="T&#xe4;ysk&#xe4;si"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="takariButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, takariButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="sattumaButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sattuma"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="sattumaButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, sattumaButton, statusLabel, tulosNapit));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="yatsiButton">
           <Properties>
@@ -260,7 +284,7 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="this.napitListalle();"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="yatsiButton.addActionListener(new TuloksenKuuntelija(pelialusta, tulosTable, heittoButton, nopat, yatsiButton, statusLabel, tulosNapit));&#xa;&#xa;this.napitListalle();"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="valisummaLabel">
