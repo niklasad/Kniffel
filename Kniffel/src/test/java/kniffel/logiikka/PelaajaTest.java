@@ -93,6 +93,11 @@ public class PelaajaTest {
         pelaaja.lisaaTulos("Pari", 12);
         assertEquals(22,pelaaja.getValiSumma());
     }
+    
+    @Test
+    public void hyvitysLisätäänSummaan(){
+        
+    }
 
     @After
     public void tearDown() {

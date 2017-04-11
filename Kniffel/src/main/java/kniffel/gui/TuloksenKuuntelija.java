@@ -44,6 +44,14 @@ public class TuloksenKuuntelija implements ActionListener {
 
     }
 
+    /**
+     * Kun tulosnappia painetaan käyttöliittymässä, tarkistetaan ensin, onko
+     * kyseinen tulos jo käytetty. Jos on, niin statusteksti kertoo että tulos
+     * on jo käytetty ja muuta ei tapahdu. Muutoin siirrytään metodiin joka
+     * asettaa taulukkoon oikean tuloksen
+     *
+     * @param ae
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (this.onkoKaytetty() == false) {
@@ -53,28 +61,47 @@ public class TuloksenKuuntelija implements ActionListener {
         }
     }
 
+    /**
+     * Tämä metodi seuraa, jos actionPerformed metodi pääsee eteenpäin
+     * tarkistusvaiheesta. Vuorossa olevan pelaajan "vuoronumeroa" tarvitaan,
+     * jotta tulos asetetaan oikeaan paikkaan taulukossa, pisteet taas haetaan
+     * klikatun napin nimen perusteella pelialustan metodin getTulos("tuloksen
+     * nimi") avulla. Seuraavaksi asetetaan pisteet pelaajan henkilökohtaiselle
+     * pistetaululle ja sen jälkeen päivitetään taulukkoon kyseisen tuloksen
+     * pisteet. Viimeiseksi asetetaan napit seuraavaa pelaajaa/heittoa varten ja
+     * päivitetään statusteksti.
+     */
     public void asetaTulokset() {
         int pelaaja = alusta.getVuorossaOlevaPelaaja();
         int pisteet = alusta.getTulos(tulos.getText());
 
         alusta.getPelaajat().get(pelaaja).lisaaTulos(tulos.getText(), pisteet);
-        int summa = alusta.getPelaajat().get(pelaaja).getPisteet();
 
-        this.taulukko.setValueAt(pisteet, getRow(), pelaaja);
-        this.taulukko.setValueAt(summa, 17, pelaaja);
-
-        heittonappi.setEnabled(true);
-        lukitseTulosNapit();
-        alustaNopat();
-        status.setText(alusta.getPelaajat().get(pelaaja) + " heittää!");
+        paivitaTulokset(pisteet, pelaaja);
+        alustaSeuraava();
+        status.setText(alusta.getPelaajat().get(alusta.getVuorossaOlevaPelaaja()) + " heittää!");
     }
 
+    /**
+     * Tarkistaa onko painettu tulosnappi, eli tulos jo käytetty kyseiseltä
+     * pelaajalta.
+     *
+     * @return
+     */
     public boolean onkoKaytetty() {
-        int pelaaja = alusta.getVuorossaOlevaPelaaja();
-        if (alusta.getPelaajat().get(pelaaja).haeTulos(tulos.getText()) == -1) {
+        if (alusta.getPelaajat().get(alusta.getVuorossaOlevaPelaaja()).haeTulos(tulos.getText()) == -1) {
             return false;
         }
         return true;
+    }
+
+    private void paivitaTulokset(int pisteet, int pelaaja) {
+        this.taulukko.setValueAt(pisteet, getRow(), pelaaja);
+        this.taulukko.setValueAt(alusta.getPelaajat().get(pelaaja).getPisteet(), 17, pelaaja);
+        this.taulukko.setValueAt(alusta.getPelaajat().get(pelaaja).getValiSumma(), 6, pelaaja);
+        if (alusta.getPelaajat().get(pelaaja).onkoHyvitys() == true && taulukko.getValueAt(7, pelaaja) == null) {
+            this.taulukko.setValueAt(50, 7, pelaaja);
+        }
     }
 
     private void lukitseTulosNapit() {
@@ -83,6 +110,23 @@ public class TuloksenKuuntelija implements ActionListener {
         }
     }
 
+    /**
+     * siirtää vuoroa, asettaa heittonapin käyttöön, lukitsee tulosnapit, ja
+     * alustaa nopat seuraavaa vuoroa varten.
+     */
+    private void alustaSeuraava() {
+        this.alusta.seuraavaPelaaja();
+        heittonappi.setEnabled(true);
+        lukitseTulosNapit();
+        alustaNopat();
+
+    }
+
+    /**
+     * Alustaa nopat seuraavaa kierrosta varten, eli asettaa nopat
+     * heitettäviksi, ja lukitsee napit, jotta edellisen kierroksen noppia ei
+     * voi käyttää.
+     */
     private void alustaNopat() {
         for (Noppa noppa : alusta.getNopat()) {
             if (noppa.saastetaanko() == true) {
@@ -95,6 +139,11 @@ public class TuloksenKuuntelija implements ActionListener {
         }
     }
 
+    /**
+     * palauttaa asetettavaa tulosta vastaavan rivikoordinaatin
+     *
+     * @return
+     */
     public int getRow() {
         if (tulos.getText().equals("Ykköset")) {
             return 0;

@@ -5,6 +5,7 @@
  */
 package kniffel.logiikka;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -80,15 +81,16 @@ public class Pistelaskuri {
      * @return pisteet. Jos paria ei löydy, palauttaa 0.
      */
     public int kaksiParia(List<Noppa> kasi) {
+        List<Noppa> kopio = new ArrayList<>(kasi);
         Noppa temp = new Noppa();
-        int eka = this.samojenLoytaja(kasi, 2);
+        int eka = this.samojenLoytaja(kopio, 2);
         if (eka == 0) {
             return 0;
         } else {
             temp.asetaSilmaluku(eka / 2);
-            kasi.remove(temp);
-            kasi.remove(temp);
-            int toka = this.samojenLoytaja(kasi, 2);
+            kopio.remove(temp);
+            kopio.remove(temp);
+            int toka = this.samojenLoytaja(kopio, 2);
             if (toka != 0 && toka != eka) {
                 return eka + toka;
             }

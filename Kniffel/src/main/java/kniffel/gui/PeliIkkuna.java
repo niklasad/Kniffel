@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import kniffel.logiikka.Pelialusta;
+import kniffel.logiikka.Pelaaja;
 
 /**
  * Graafinen käyttöliittymä pelivaiheelle
@@ -183,7 +184,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Pelaaja 1", "Pelaaja 2", "Pelaaja 3", "Pelaaja 4"
+                "Tyhjä", "Tyhjä", "Tyhjä", "Tyhjä"
             }
         ) {
             Class[] types = new Class [] {
@@ -201,9 +202,24 @@ public class PeliIkkuna extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tulosTable.setRowHeight(36);
+        tulosTable.setAutoscrolls(false);
+        tulosTable.setRowHeight(34);
         tulosTable.setRowSelectionAllowed(false);
+        tulosTable.getTableHeader().setReorderingAllowed(false);
+        int x = 0;
+        for (Pelaaja pelaaja : pelialusta.getPelaajat()){
+            tulosTable.getColumnModel().getColumn(x).setHeaderValue(pelaaja.getNimi());
+            x++;
+        }
+        tulosTable.setShowGrid(true);
+        tulosTable.setGridColor(Color.BLACK);
         jScrollPane2.setViewportView(tulosTable);
+        if (tulosTable.getColumnModel().getColumnCount() > 0) {
+            tulosTable.getColumnModel().getColumn(0).setResizable(false);
+            tulosTable.getColumnModel().getColumn(1).setResizable(false);
+            tulosTable.getColumnModel().getColumn(2).setResizable(false);
+            tulosTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         javax.swing.GroupLayout TuloksetLayout = new javax.swing.GroupLayout(Tulokset);
         Tulokset.setLayout(TuloksetLayout);
@@ -236,8 +252,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
                             .addComponent(sattumaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(yatsiButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(643, 643, 643))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(476, 476, 476))
         );
 
         TuloksetLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {isoSuoraButton, kakkosetButton, kaksiPariaButton, kolmesamaaButton, kolmosetButton, kutosetButton, neljasamaaButton, nelosetButton, pariButton, sattumaButton, suoraButton, takariButton, viitosetButton, yatsiButton, ykkosetButton});
@@ -245,9 +261,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
         TuloksetLayout.setVerticalGroup(
             TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TuloksetLayout.createSequentialGroup()
-                .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, TuloksetLayout.createSequentialGroup()
+                .addGroup(TuloksetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TuloksetLayout.createSequentialGroup()
                         .addComponent(pelaajaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ykkosetButton)
@@ -284,8 +299,11 @@ public class PeliIkkuna extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(yatsiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(summaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addComponent(summaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(TuloksetLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TuloksetLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {hyvitysLabel, isoSuoraButton, kakkosetButton, kaksiPariaButton, kolmesamaaButton, kolmosetButton, kutosetButton, neljasamaaButton, nelosetButton, pariButton, sattumaButton, suoraButton, takariButton, valisummaLabel, viitosetButton, ykkosetButton});
@@ -383,8 +401,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Tulokset, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Tulokset, javax.swing.GroupLayout.PREFERRED_SIZE, 598, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Nopat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -395,7 +413,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Nopat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
             .addGroup(layout.createSequentialGroup()

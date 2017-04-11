@@ -15,6 +15,7 @@ public class Pelaaja {
     private int pisteet;
     private int valisumma;
     private HashMap<String, Integer> tulokset;
+    private boolean hyvitys;
 
     /**
      * Pelaajan konstruktori, jossa asetetaan pelaajan yhteispisteet ja
@@ -27,6 +28,8 @@ public class Pelaaja {
         this.pisteet = 0;
         this.tulokset = new HashMap();
         this.valisumma = 0;
+        this.hyvitys = false;
+        
     }
 
     public String toString() {
@@ -75,6 +78,10 @@ public class Pelaaja {
         }
         return -1;
     }
+    
+    public boolean onkoHyvitys(){
+        return this.hyvitys;
+    }
 
     /**
      * Metodi tarkistaa, onko pelaaja oikeutettu hyvitykseen tässä vaiheessa
@@ -90,8 +97,9 @@ public class Pelaaja {
                 | nimi.equals("Viitoset") | nimi.equals("Kutoset")) {
             valisumma += pisteet;
         }
-        if (valisumma >= 63) {
+        if (valisumma >= 63 && hyvitys == false) {
             this.pisteet += 50;
+            hyvitys = true;
         }
     }
 
