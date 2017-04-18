@@ -10,3 +10,5 @@ Päivä | Tunnit | Kuvaus
 04.04.2017 | 2 h | Käyttöliittymän tekoa
 05.04.2017 | 6 h | Käyttöliittymän jatkokehitystä
 06.04.2017 | 8 h | Käyttöliittymän kehittelyä, JavaDoccailua, testien tekoa ja raporttien tekoa
+11.04.2017 | 4 h | Käyttöliittymän kehitystä, kierrokset toimintaan
+18.04.2017 | 3 h | Käyttöliittymä "valmis", javadoccia
