@@ -38,7 +38,7 @@ public class Pelialusta {
     }
 
     /**
-     * lisää pelaajalistalle pelaajan jonka nimi on parametrin mukainen
+     * lisää pelaajalistalle pelaajan, jonka nimi on parametrin mukainen
      *
      * @param nimi
      */
@@ -66,6 +66,20 @@ public class Pelialusta {
 
     public List<Pelaaja> getPelaajat() {
         return this.pelaajat;
+    }
+
+    public String getVoittaja() {
+        Pelaaja voittaja = pelaajat.get(0);
+        String voitto = "";
+        for (Pelaaja pelaaja : pelaajat) {
+            if (pelaaja.getPisteet() > voittaja.getPisteet()) {
+                voittaja = pelaaja;
+                voitto = voittaja.getNimi();
+            } else if (pelaaja.getPisteet() == voittaja.getPisteet()) {
+                voitto += ", " + pelaaja.getNimi();
+            }
+        }
+        return voitto;
     }
 
     /**
@@ -117,6 +131,10 @@ public class Pelialusta {
     public int getVuorossaOlevaPelaaja() {
         return this.pelaaja;
     }
+    
+    public int getKierros(){
+        return this.kierros;
+    }
 
     /**
      * "Siirtää vuoroa" eli millä indeksillä pelaajalistalta haetaan pelaajaa,
@@ -128,6 +146,7 @@ public class Pelialusta {
             pelaaja++;
         } else {
             pelaaja = 0;
+            kierros ++;
         }
     }
 

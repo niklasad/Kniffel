@@ -12,8 +12,10 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import kniffel.logiikka.Noppa;
 import kniffel.logiikka.Pelialusta;
+import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 /**
  * Luokka joka asettaa käyttöliittymässä valittuun tulokseen oikeat pisteet
@@ -79,7 +81,6 @@ public class TuloksenKuuntelija implements ActionListener {
 
         paivitaTulokset(pisteet, pelaaja);
         alustaSeuraava();
-        status.setText(alusta.getPelaajat().get(alusta.getVuorossaOlevaPelaaja()) + " heittää!");
     }
 
     /**
@@ -116,9 +117,37 @@ public class TuloksenKuuntelija implements ActionListener {
      */
     private void alustaSeuraava() {
         this.alusta.seuraavaPelaaja();
-        heittonappi.setEnabled(true);
+        if (onkoLoppu() == false) {
+            heittonappi.setEnabled(true);
+            lukitseTulosNapit();
+            alustaNopat();
+            status.setText(alusta.getPelaajat().get(alusta.getVuorossaOlevaPelaaja()) + " heittää!");
+        } else {
+            lopetaPeli();
+        }
+    }
+
+    /**
+     * Tarkistaa onko pelissä pelattu jo 15 kierrosta, eli onko peli ohi.
+     * Palauttaa true jos peli loppuu.
+     *
+     * @return
+     */
+    private boolean onkoLoppu() {
+        if (alusta.getKierros() == 15) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * hoitaa pelin lopettavat toimenpiteet ja julistaa voittajan statukseen
+     */
+    private void lopetaPeli() {
+        status.setText(alusta.getVoittaja() + " voitti!");
+        this.heittonappi.setText("Lopeta peli");
+        this.heittonappi.setEnabled(true);
         lukitseTulosNapit();
-        alustaNopat();
 
     }
 

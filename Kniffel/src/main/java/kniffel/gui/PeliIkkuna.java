@@ -311,7 +311,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
         Nopat.setBackground(java.awt.Color.white);
         Nopat.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        noppa1Button.setText("Noppa1");
+        noppa1Button.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        noppa1Button.setText("N1");
         noppa1Button.setEnabled(false);
         noppa1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -320,7 +321,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
         });
         this.nopat.add(noppa1Button);
 
-        noppa2Button.setText("Noppa2");
+        noppa2Button.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        noppa2Button.setText("N2");
         noppa2Button.setEnabled(false);
         noppa2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,7 +331,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
         });
         this.nopat.add(noppa2Button);
 
-        noppa3Button.setText("Noppa3");
+        noppa3Button.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        noppa3Button.setText("N3");
         noppa3Button.setEnabled(false);
         noppa3Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,7 +341,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
         });
         this.nopat.add(noppa3Button);
 
-        noppa4Button.setText("Noppa4");
+        noppa4Button.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        noppa4Button.setText("N4");
         noppa4Button.setEnabled(false);
         noppa4Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,7 +351,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
         });
         this.nopat.add(noppa4Button);
 
-        noppa5Button.setText("Noppa5");
+        noppa5Button.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        noppa5Button.setText("N5");
         noppa5Button.setEnabled(false);
         noppa5Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -357,7 +362,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         this.nopat.add(noppa5Button);
 
         heittoButton.setText("Heitä nopat!");
-        this.heittoButton.addActionListener(new HeitonKuuntelija(this.pelialusta, this.nopat, heittoButton, statusLabel, tulosNapit));
+        this.heittoButton.addActionListener(new HeitonKuuntelija(this.pelialusta, this.nopat, heittoButton, statusLabel, tulosNapit, this));
 
         javax.swing.GroupLayout NopatLayout = new javax.swing.GroupLayout(Nopat);
         Nopat.setLayout(NopatLayout);
@@ -413,7 +418,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Nopat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
             .addGroup(layout.createSequentialGroup()

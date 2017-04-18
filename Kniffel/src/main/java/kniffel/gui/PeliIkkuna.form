@@ -40,7 +40,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Nopat" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="68" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="statusLabel" min="-2" pref="97" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
           </Group>
@@ -455,7 +455,10 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="noppa1Button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Noppa1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Ubuntu" size="36" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="N1"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -467,7 +470,10 @@
         </Component>
         <Component class="javax.swing.JButton" name="noppa2Button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Noppa2"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Ubuntu" size="36" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="N2"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -479,7 +485,10 @@
         </Component>
         <Component class="javax.swing.JButton" name="noppa3Button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Noppa3"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Ubuntu" size="36" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="N3"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -491,7 +500,10 @@
         </Component>
         <Component class="javax.swing.JButton" name="noppa4Button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Noppa4"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Ubuntu" size="36" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="N4"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -503,7 +515,10 @@
         </Component>
         <Component class="javax.swing.JButton" name="noppa5Button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Noppa5"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Ubuntu" size="36" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="N5"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -518,7 +533,7 @@
             <Property name="text" type="java.lang.String" value="Heit&#xe4; nopat!"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="this.heittoButton.addActionListener(new HeitonKuuntelija(this.pelialusta, this.nopat, heittoButton, statusLabel, tulosNapit));"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="this.heittoButton.addActionListener(new HeitonKuuntelija(this.pelialusta, this.nopat, heittoButton, statusLabel, tulosNapit, this));"/>
           </AuxValues>
         </Component>
       </SubComponents>
