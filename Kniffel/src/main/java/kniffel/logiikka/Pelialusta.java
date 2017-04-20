@@ -95,7 +95,7 @@ public class Pelialusta {
             }
 
         }
-        return voittaja.getNimi() + " voitti!";
+        return voittaja.getNimi();
     }
 
     /**

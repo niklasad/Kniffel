@@ -82,7 +82,7 @@ public class PelialustaTest {
     public void getVoittajaToimiiOikein() {
         alusta.getPelaajat().get(0).lisaaTulos("yatsi", 50);
         alusta.getPelaajat().get(1).lisaaTulos("kutoset", 24);
-        assertEquals("Nakki voitti!", alusta.getVoittaja());
+        assertEquals("Nakki", alusta.getVoittaja());
     }
 
     @Test
