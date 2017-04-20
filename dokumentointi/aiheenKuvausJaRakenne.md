@@ -1,5 +1,5 @@
 **AIHE:** Yatsi peli. Toteutetaan vuoropohjainen noppapeli, yatsi, jota voi
-pelata yksin tai kavereiden kanssa.
+pelata yksin tai kavereiden kanssa (1-4 pelaajaa).
 
 **Käyttäjät:** Kuka tahansa joka pelistä pitää
 
