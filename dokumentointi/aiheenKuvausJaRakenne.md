@@ -10,9 +10,11 @@ pelata yksin tai kavereiden kanssa (1-4 pelaajaa).
 - pisteiden kohdistaminen johonkin tulokseen
 
 **Luokkakaavio**
+
 ![luokkakaavio](luokkakaavio.png "luokkakaavio")
 
 **Sekvenssikaaviot**
+
 Pelaajan lisääminen:
 ![pelaajan lisääminen sekvenssikavio](pelaajan_lisaaminen_sekvenssi.png "pelaajan lisääminen sekvenssikaaviona")
 
