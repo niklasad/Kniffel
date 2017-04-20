@@ -21,15 +21,13 @@ public class AloitusIkkunanKuuntelija implements ActionListener {
 
     private Pelialusta alusta;
     private JTextField pelaaja;
-    private int pelaajia;
     private JButton aloitusnappi;
     private JLabel ohje;
     private JButton lisaysnappi;
 
     public AloitusIkkunanKuuntelija(Pelialusta alusta, JTextField nimi, JLabel o, JButton a, JButton p) {
         this.alusta = alusta;
-        this.pelaaja = nimi;
-        pelaajia = 0;
+        this.pelaaja = nimi;        
         this.ohje = o;
         this.aloitusnappi = a;
         this.lisaysnappi = p;
@@ -50,9 +48,8 @@ public class AloitusIkkunanKuuntelija implements ActionListener {
     }
 
     public void lisaaPelaaja() {
-        this.alusta.lisaaPelaaja(pelaaja.getText());
-        pelaajia++;
-        if (pelaajia < 4) {
+        this.alusta.lisaaPelaaja(pelaaja.getText());        
+        if (alusta.getPelaajat().size() < 4) {
             ohje.setText("Pelaaja lisätty! Syötä seuraava nimi");
         } else {
             lisaysnappi.setEnabled(false);

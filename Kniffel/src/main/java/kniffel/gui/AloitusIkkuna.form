@@ -33,7 +33,7 @@
                               <Component id="aloitusButton" alignment="2" min="-2" pref="172" max="-2" attributes="0"/>
                               <Component id="pelaajanLisaysButton" linkSize="4" alignment="2" min="-2" pref="309" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel1" linkSize="4" alignment="2" min="-2" pref="390" max="-2" attributes="0"/>
+                          <Component id="aloitusLabel" linkSize="4" alignment="2" min="-2" pref="390" max="-2" attributes="0"/>
                           <Component id="nimiTextField" linkSize="4" alignment="2" min="-2" pref="122" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -50,7 +50,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="152" max="-2" attributes="0"/>
+              <Component id="aloitusLabel" min="-2" pref="152" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Component id="selite" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -65,7 +65,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="aloitusLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Noto Sans" size="18" style="1"/>

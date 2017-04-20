@@ -34,7 +34,7 @@ public class AloitusIkkuna extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        aloitusLabel = new javax.swing.JLabel();
         aloitusButton = new javax.swing.JButton();
         nimiTextField = new javax.swing.JTextField();
         pelaajanLisaysButton = new javax.swing.JButton();
@@ -43,10 +43,10 @@ public class AloitusIkkuna extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kniffel");
 
-        jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Tervetuloa pelaamaan Kniffeliä!");
-        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        aloitusLabel.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        aloitusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        aloitusLabel.setText("Tervetuloa pelaamaan Kniffeliä!");
+        aloitusLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         aloitusButton.setText("Aloita peli!");
         aloitusButton.setEnabled(false);
@@ -75,7 +75,7 @@ public class AloitusIkkuna extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                 .addComponent(aloitusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(pelaajanLisaysButton, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(aloitusLabel, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nimiTextField, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
@@ -83,13 +83,13 @@ public class AloitusIkkuna extends javax.swing.JFrame {
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, nimiTextField, pelaajanLisaysButton, selite});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {aloitusLabel, nimiTextField, pelaajanLisaysButton, selite});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(aloitusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(selite)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -105,9 +105,10 @@ public class AloitusIkkuna extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aloitusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aloitusButtonMouseClicked
-        this.dispose();
-        new PeliIkkuna(alusta).setVisible(true);
-
+        if (this.alusta.getPelaajat().size() != 0) {
+            this.dispose();
+            new PeliIkkuna(alusta).setVisible(true);
+        }
     }//GEN-LAST:event_aloitusButtonMouseClicked
 
     /**
@@ -147,7 +148,7 @@ public class AloitusIkkuna extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aloitusButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel aloitusLabel;
     private javax.swing.JTextField nimiTextField;
     private javax.swing.JButton pelaajanLisaysButton;
     private javax.swing.JLabel selite;
