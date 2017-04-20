@@ -41,6 +41,10 @@ public class Pelaaja {
         return this.nimi;
     }
 
+    public String toString() {
+        return this.nimi;
+    }
+
     /**
      * palauttaa pelaajan tämänhetkiset yhteispisteet.
      *

@@ -48,6 +48,10 @@ public class Noppa implements Comparable<Noppa> {
         this.silmaluku = luku.nextInt(6) + 1;
     }
 
+    public String toString() {
+        return "" + this.silmaluku;
+    }
+
     /**
      * Vaihtaa nopan "statusta". Jos lukittu = true, noppaa ei heitetä
      * pelilaudan metodilla
