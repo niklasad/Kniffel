@@ -17,6 +17,9 @@ import java.util.List;
  */
 public class Pistelaskuri {
 
+    /**
+     * konstruktori, ei tee mitään.
+     */
     public Pistelaskuri() {
 
     }
@@ -36,26 +39,56 @@ public class Pistelaskuri {
 
     }
 
+    /**
+     * sama kuin ykkösillä.
+     *
+     * @param kasi = noppayhdistelmä
+     * @return tulos
+     */
     public int kakkoset(List<Noppa> kasi) {
         int kakkoset = this.pisteLaskuri(kasi, 2);
         return kakkoset;
     }
 
+    /**
+     * sama kuin ykkösillä.
+     *
+     * @param kasi = noppayhdistelmä
+     * @return tulos
+     */
     public int kolmoset(List<Noppa> kasi) {
         int kolmoset = this.pisteLaskuri(kasi, 3);
         return kolmoset;
     }
 
+    /**
+     * sama kuin ykkösillä.
+     *
+     * @param kasi = noppayhdistelmä
+     * @return tulos
+     */
     public int neloset(List<Noppa> kasi) {
         int neloset = this.pisteLaskuri(kasi, 4);
         return neloset;
     }
 
+    /**
+     * sama kuin ykkösillä.
+     *
+     * @param kasi = noppayhdistelmä
+     * @return tulos
+     */
     public int vitoset(List<Noppa> kasi) {
         int vitoset = this.pisteLaskuri(kasi, 5);
         return vitoset;
     }
 
+    /**
+     * sama kuin ykkösillä.
+     *
+     * @param kasi = noppayhdistelmä
+     * @return tulos
+     */
     public int kutoset(List<Noppa> kasi) {
         int kutoset = this.pisteLaskuri(kasi, 6);
         return kutoset;
@@ -103,14 +136,20 @@ public class Pistelaskuri {
      * yhdistelmät mitä kädestä löytyy ja palauttavat niiden summan. Jos
      * yhdistelmiä ei löydy, palauttavat 0.
      *
-     * @param kasi
-     * @return
+     * @param kasi = noppayhdistelmä
+     * @return tulos
      */
     public int kolmesamaa(List<Noppa> kasi) {
         int kolmesamaa = this.samojenLoytaja(kasi, 3);
         return kolmesamaa;
     }
 
+    /**
+     * ks. kolmesamaa.
+     *
+     * @param kasi = noppayhdistelmä
+     * @return tulos
+     */
     public int neljasamaa(List<Noppa> kasi) {
         int neljasamaa = this.samojenLoytaja(kasi, 4);
         return neljasamaa;
@@ -118,7 +157,7 @@ public class Pistelaskuri {
 
     /**
      * Jos käsi sisältää silmäluvut 1,2,3,4 ja 5, metodi palauttaa pisteet 15,
-     * muuten 0
+     * muuten 0.
      *
      * @param kasi noppayhdistelmä
      * @return pisteet
@@ -135,7 +174,7 @@ public class Pistelaskuri {
     }
 
     /**
-     * jos käsi sisältää silmäluvut 2,3,4,5 ja 6 palauttaa pisteet 20, muuten 0
+     * jos käsi sisältää silmäluvut 2,3,4,5 ja 6 palauttaa pisteet 20, muuten 0.
      *
      * @param kasi noppayhdistelmä
      * @return pisteet
@@ -175,10 +214,10 @@ public class Pistelaskuri {
     }
 
     /**
-     * palauttaa kaikkien noppien summan
+     * palauttaa kaikkien noppien summan.
      *
-     * @param kasi
-     * @return
+     * @param kasi = noppayhdistelmä
+     * @return tulos
      */
     public int sattuma(List<Noppa> kasi) {
         int x = 0;
@@ -189,10 +228,10 @@ public class Pistelaskuri {
     }
 
     /**
-     * jos käsi sisältää 5 samaa lukua, palauttaa 50, muuten 0
+     * jos käsi sisältää 5 samaa lukua, palauttaa 50, muuten 0.
      *
-     * @param kasi
-     * @return
+     * @param kasi = noppayhdistelmä
+     * @return tulos
      */
     public int yatzy(List<Noppa> kasi) {
         if (kasi.get(0).equals(kasi.get(1)) && kasi.get(1).equals(kasi.get(2))
@@ -205,7 +244,7 @@ public class Pistelaskuri {
     }
 
     /**
-     * etsii kädestä kaikki tietyn luvun esiintymät ja summaa ne
+     * etsii kädestä kaikki tietyn luvun esiintymät ja summaa ne.
      *
      * @param kasi 5 nopan yhdistelmä
      * @param luku etsittävä luku
@@ -222,7 +261,7 @@ public class Pistelaskuri {
     }
 
     /**
-     * Etsii kädestä kutosesta alaspäin lähtien jonkin saman numeron esiintymiä
+     * Etsii kädestä kutosesta alaspäin lähtien jonkin saman numeron esiintymiä.
      *
      * @param kasi 5 nopan yhdistelmä
      * @param monta monen nopan yhdistelmää kaivataan, esim. kolmea samaa
@@ -243,9 +282,9 @@ public class Pistelaskuri {
 
     /**
      * palauttaa luvun, montako tiettyä noppaa, eli nopan silmälukua käsi
-     * sisältää
+     * sisältää.
      *
-     * @param nopat
+     * @param nopat = noppalista, yhdistelmä noppia
      * @param o haettu noppa(eli silmäluku)
      * @return montako tiettyä silmälukua käsi sisältää
      */

@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import kniffel.logiikka.Pelialusta;
 
 /**
- * Kuuntelija nopan heittämiselle
+ * Kuuntelija nopan heittämiselle.
  *
  * @author niklasad
  */
@@ -28,6 +28,17 @@ public class HeitonKuuntelija implements ActionListener {
     private List<JButton> napit;
     private JFrame ikkuna;
 
+    /**
+     * konstruktori joka saa parametreina tarvittavat komponentit.
+     *
+     * @param a = pelialusta
+     * @param nopat = noppanapit
+     * @param b = heittonappula
+     * @param s = statuslabel (päivittyvä)
+     * @param n = tulosnapit jotka avataan käyttöön tässä kuuntelijassa
+     * @param peliIkkuna = peli ikkuna, jotta se voidaan lopussa sulkea
+     * noppanapin avulla
+     */
     public HeitonKuuntelija(Pelialusta a, List<JButton> nopat, JButton b, JLabel s, List<JButton> n, JFrame peliIkkuna) {
         this.alusta = a;
         this.nopat = nopat;
@@ -37,10 +48,13 @@ public class HeitonKuuntelija implements ActionListener {
         this.napit = n;
         this.ikkuna = peliIkkuna;
     }
+
     /**
-     * Jos Pelialustan getKierros palauttaa 15, on peli päättynyt ja noppanapin teksti on jo muuttunut "Lopeta peli"
-     * muotoon ja tällöin sen painaminen lopettaa nykyisen pelin ja avaa uuden AloitusIkkunan
-     * @param e 
+     * Jos Pelialustan getKierros palauttaa 15, on peli päättynyt ja noppanapin
+     * teksti on jo muuttunut "Lopeta peli" muotoon ja tällöin sen painaminen
+     * lopettaa nykyisen pelin ja avaa uuden AloitusIkkunan.
+     *
+     * @param e = näppäintä klikattu
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -52,10 +66,13 @@ public class HeitonKuuntelija implements ActionListener {
         }
 
     }
+
     /**
-     * Normaalit kierrostoimenpiteet Noppapainikkeelle, eli pelaajan ensimmäisen heiton jälkeen vapauttaa nopat valittaviksi
-     * ja heittää nopat ja päivittää numerot oikeiksi käyttöliittymään. 3 heiton jälkeen asettaa heittonapin pois käytöstä ja
-     * vapauttaa tulosnapit jotta tuloksen voi asettaa, sekä päivittää statuslabelin ohjeet ja nollaa vielä pelaajakohtaisen 
+     * Normaalit kierrostoimenpiteet Noppapainikkeelle, eli pelaajan ensimmäisen
+     * heiton jälkeen vapauttaa nopat valittaviksi ja heittää nopat ja päivittää
+     * numerot oikeiksi käyttöliittymään. 3 heiton jälkeen asettaa heittonapin
+     * pois käytöstä ja vapauttaa tulosnapit jotta tuloksen voi asettaa, sekä
+     * päivittää statuslabelin ohjeet ja nollaa vielä pelaajakohtaisen
      * heittovuoron.
      */
     private void perusKierros() {
@@ -72,17 +89,14 @@ public class HeitonKuuntelija implements ActionListener {
             this.heitto = 0;
         }
     }
+
     /**
      * Heittää nopat Pelialustalla ja päivittää arvot käyttöliittymään
      */
     private void heitaJaPaivitaNopat() {
         this.alusta.heitaNopat();
         heitto++;
-        int x = 0;
-        for (JButton noppa : nopat) {
-            noppa.setText(alusta.getNopat().get(x).toString());
-            x++;
-        }
+        paivitaNopat();
         paivitaStatus();
     }
 
@@ -95,6 +109,14 @@ public class HeitonKuuntelija implements ActionListener {
     private void vapautaNopat() {
         for (JButton noppa : nopat) {
             noppa.setEnabled(true);
+        }
+    }
+
+    private void paivitaNopat() {
+        int x = 0;
+        for (JButton noppa : nopat) {
+            noppa.setText(alusta.getNopat().get(x).toString());
+            x++;
         }
     }
 

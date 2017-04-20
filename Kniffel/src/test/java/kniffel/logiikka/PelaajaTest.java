@@ -77,26 +77,34 @@ public class PelaajaTest {
     }
 
     @Test
-    public void toStringToimii() {
-        assertEquals("pelaaja1", pelaaja.toString());
+    public void getNimiToimii() {
+        assertEquals("pelaaja1", pelaaja.getNimi());
     }
 
     @Test
     public void tulostaEiLoydyPalauttaaJotain() {
-        assertEquals(pelaaja.haeTulos("Ykköset"),-1);
+        assertEquals(pelaaja.haeTulos("Ykköset"), -1);
     }
+
     @Test
-    public void valiSummanTarkastajaToimii(){
+    public void valiSummanTarkastajaToimii() {
         pelaaja.lisaaTulos("Ykköset", 4);
         pelaaja.lisaaTulos("Kakkoset", 6);
         pelaaja.lisaaTulos("Neloset", 12);
         pelaaja.lisaaTulos("Pari", 12);
-        assertEquals(22,pelaaja.getValiSumma());
+        assertEquals(22, pelaaja.getValiSumma());
     }
-    
+
     @Test
-    public void hyvitysLisätäänSummaan(){
-        
+    public void hyvitysToimii() {
+        pelaaja.lisaaTulos("Ykköset", 3);
+        pelaaja.lisaaTulos("Kakkoset", 6);
+        pelaaja.lisaaTulos("Kolmoset", 9);
+        pelaaja.lisaaTulos("Neloset", 12);
+        pelaaja.lisaaTulos("Viitoset", 15);
+        pelaaja.lisaaTulos("Kutoset", 18);
+        assertEquals(true, pelaaja.onkoHyvitys());
+        assertEquals(113, pelaaja.getPisteet());
     }
 
     @After

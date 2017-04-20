@@ -78,6 +78,11 @@ public class NoppaTest {
         noppa.saasta();
         assertEquals(false, noppa.saastetaanko());
     }
-    
+
+    @Test
+    public void equalsToimii() {
+        assertEquals(false, noppa.equals(null));
+        assertEquals(false, noppa.equals(new String("haha")));
+    }
 
 }

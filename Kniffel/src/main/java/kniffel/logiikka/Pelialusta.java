@@ -6,7 +6,7 @@ import kniffel.gui.PeliIkkuna;
 
 /**
  * Pelialusta pitää peliä kasassa, laskee kierrokset, hallitsee noppia, pelaajia
- * ja pistelaskuria
+ * ja pistelaskuria.
  *
  *
  * @author nakkilinux
@@ -19,6 +19,10 @@ public class Pelialusta {
     private int kierros;
     private int pelaaja;
 
+    /**
+     * konstruktori jossa alustetaan noppalista, pelaajalista sekä pistelaskuri
+     * ja asetetaan vuorossa oleva pelaaja sekä kierros nollaksi.
+     */
     public Pelialusta() {
         this.nopat = new ArrayList();
         this.alustaNopat();
@@ -29,7 +33,7 @@ public class Pelialusta {
     }
 
     /**
-     * alustaa noppalistan, eli lisää sinne 5 noppaa
+     * alustaa noppalistan, eli lisää sinne 5 noppaa.
      */
     private void alustaNopat() {
         for (int i = 0; i < 5; i++) {
@@ -38,9 +42,9 @@ public class Pelialusta {
     }
 
     /**
-     * lisää pelaajalistalle pelaajan, jonka nimi on parametrin mukainen
+     * lisää pelaajalistalle pelaajan, jonka nimi on parametrin mukainen.
      *
-     * @param nimi
+     * @param nimi = pelaajalle asetettava nimi
      */
     public void lisaaPelaaja(String nimi) {
         if (this.pelaajat.size() < 4) {
@@ -50,7 +54,7 @@ public class Pelialusta {
     }
 
     /**
-     * heittää noppalistan nopat, jos niitä ei ole asetettu säästettäväksi
+     * heittää noppalistan nopat, jos niitä ei ole asetettu säästettäväksi.
      */
     public void heitaNopat() {
         for (Noppa noppa : nopat) {
@@ -60,33 +64,45 @@ public class Pelialusta {
         }
     }
 
+    /**
+     * palauttaa pelin nopat listalla.
+     *
+     * @return nopat
+     */
     public List<Noppa> getNopat() {
         return this.nopat;
     }
 
+    /**
+     * palauttaa listalla kaikki peliin asetetut pelaajat.
+     *
+     * @return pelaajat
+     */
     public List<Pelaaja> getPelaajat() {
         return this.pelaajat;
     }
 
+    /**
+     * palauttaa pelin voittaneen pelaajan.
+     *
+     * @return voittajan nimen ja "voitit!" toivotuksen
+     */
     public String getVoittaja() {
         Pelaaja voittaja = pelaajat.get(0);
-        String voitto = "";
         for (Pelaaja pelaaja : pelaajat) {
             if (pelaaja.getPisteet() > voittaja.getPisteet()) {
                 voittaja = pelaaja;
-                voitto = voittaja.getNimi();
-            } else if (pelaaja.getPisteet() == voittaja.getPisteet()) {
-                voitto += ", " + pelaaja.getNimi();
             }
+
         }
-        return voitto;
+        return voittaja.getNimi() + " voitti!";
     }
 
     /**
-     * metodi käyttää pistelaskuria ja palauttaa sieltä nimellä haetun tuloksen
+     * metodi käyttää pistelaskuria ja palauttaa sieltä nimellä haetun tuloksen.
      *
-     * @param tulos
-     * @return
+     * @param tulos = haetun tuloksen nimi
+     * @return tuloksesta saatavat pisteet.
      */
     public int getTulos(String tulos) {
         if (tulos.equals("Ykköset")) {
@@ -124,21 +140,26 @@ public class Pelialusta {
     }
 
     /**
-     * palauttaa vuorossa olevan pelaajan sijainnin pelaajalistalla
+     * palauttaa vuorossa olevan pelaajan sijainnin pelaajalistalla.
      *
-     * @return
+     * @return pelaajan sijainnin listalla.
      */
     public int getVuorossaOlevaPelaaja() {
         return this.pelaaja;
     }
-    
-    public int getKierros(){
+
+    /**
+     * palauttaa meneillään olevan kierroksen järjestysluvun.
+     *
+     * @return kierrosluvun (1-15)
+     */
+    public int getKierros() {
         return this.kierros;
     }
 
     /**
      * "Siirtää vuoroa" eli millä indeksillä pelaajalistalta haetaan pelaajaa,
-     * ja hyppää alkuun jos kierros on käyty
+     * ja hyppää alkuun jos kierros on käyty.
      */
     public void seuraavaPelaaja() {
         int pelaajia = this.pelaajat.size() - 1;
@@ -146,7 +167,7 @@ public class Pelialusta {
             pelaaja++;
         } else {
             pelaaja = 0;
-            kierros ++;
+            kierros++;
         }
     }
 

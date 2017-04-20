@@ -218,6 +218,15 @@ public class PistelaskuriTest {
         nopat.get(4).asetaSilmaluku(3);
         assertEquals(24, testi.tayskasi(nopat));
     }
+    @Test
+    public void takariinPisteitaPienempiaKolme(){
+        nopat.get(0).asetaSilmaluku(3);
+        nopat.get(1).asetaSilmaluku(3);
+        nopat.get(2).asetaSilmaluku(6);
+        nopat.get(3).asetaSilmaluku(6);
+        nopat.get(4).asetaSilmaluku(3);
+        assertEquals(21, testi.tayskasi(nopat));
+    }
     
     @Test
     public void takariinPisteitaNolla(){

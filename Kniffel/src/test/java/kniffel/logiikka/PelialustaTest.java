@@ -36,6 +36,12 @@ public class PelialustaTest {
         this.alusta = new Pelialusta();
         alusta.lisaaPelaaja("Nakki");
         alusta.lisaaPelaaja("Pelaaja2");
+        int x = 1;
+        for (Noppa noppa : alusta.getNopat()) {
+            noppa.asetaSilmaluku(x);
+            x++;
+        }
+
     }
 
     @Test
@@ -46,7 +52,7 @@ public class PelialustaTest {
     @Test
     public void pelaajanLisaysToimii() {
         assertEquals(2, alusta.getPelaajat().size());
-        assertEquals("Nakki", alusta.getPelaajat().get(0).toString());
+        assertEquals("Nakki", alusta.getPelaajat().get(0).getNimi());
     }
 
     @Test
@@ -58,18 +64,121 @@ public class PelialustaTest {
         alusta.lisaaPelaaja("Pelaaja44");
         assertEquals(4, alusta.getPelaajat().size());
     }
-    
+
     @Test
-    public void seuraavaPelaajaToimiiKerran(){        
+    public void seuraavaPelaajaToimiiKerran() {
         alusta.seuraavaPelaaja();
         assertEquals(1, alusta.getVuorossaOlevaPelaaja());
     }
-    
+
     @Test
-    public void seuraavaPelaajaToimiiKierroksenYli(){
+    public void seuraavaPelaajaToimiiKierroksenYli() {
         alusta.seuraavaPelaaja();
         alusta.seuraavaPelaaja();
         assertEquals(0, alusta.getVuorossaOlevaPelaaja());
+    }
+
+    @Test
+    public void getVoittajaToimiiOikein() {
+        alusta.getPelaajat().get(0).lisaaTulos("yatsi", 50);
+        alusta.getPelaajat().get(1).lisaaTulos("kutoset", 24);
+        assertEquals("Nakki voitti!", alusta.getVoittaja());
+    }
+
+    @Test
+    public void getKierrosToimii() {
+        alusta.seuraavaPelaaja();
+        alusta.seuraavaPelaaja();
+        assertEquals(1, alusta.getKierros());
+    }
+
+    @Test
+    public void getTulosYkkosetToimii() {
+        assertEquals(1, alusta.getTulos("Ykköset"));
+    }
+
+    @Test
+    public void getTulosKakkosetToimii() {
+        assertEquals(2, alusta.getTulos("Kakkoset"));
+    }
+
+    @Test
+    public void getTulosKolmosetToimii() {
+        assertEquals(3, alusta.getTulos("Kolmoset"));
+    }
+
+    @Test
+    public void getTulosNelosetToimii() {
+        assertEquals(4, alusta.getTulos("Neloset"));
+    }
+
+    @Test
+    public void getTulosViitosetToimii() {
+        assertEquals(5, alusta.getTulos("Viitoset"));
+    }
+
+    @Test
+    public void getTulosKutosetToimii() {
+        alusta.getNopat().get(0).asetaSilmaluku(6);
+        assertEquals(6, alusta.getTulos("Kutoset"));
+    }
+
+    @Test
+    public void getTulosPariToimii() {
+        alusta.getNopat().get(0).asetaSilmaluku(2);
+        assertEquals(4, alusta.getTulos("Pari"));
+    }
+
+    @Test
+    public void getTulosKaksiPariaToimii() {
+        alusta.getNopat().get(0).asetaSilmaluku(2);
+        alusta.getNopat().get(3).asetaSilmaluku(3);
+        assertEquals(10, alusta.getTulos("Kaksi paria"));
+    }
+
+    @Test
+    public void getTulosKolmoislukuToimii() {
+        alusta.getNopat().get(0).asetaSilmaluku(2);
+        alusta.getNopat().get(3).asetaSilmaluku(2);
+        assertEquals(6, alusta.getTulos("Kolme samaa"));
+    }
+
+    @Test
+    public void getTulosNeljaSamaaToimii() {
+        alusta.getNopat().get(0).asetaSilmaluku(2);
+        alusta.getNopat().get(3).asetaSilmaluku(2);
+        alusta.getNopat().get(4).asetaSilmaluku(2);
+        assertEquals(8, alusta.getTulos("Neljä samaa"));
+    }
+
+    @Test
+    public void getTulosKniffelToimii() {
+        alusta.getNopat().get(0).asetaSilmaluku(2);
+        alusta.getNopat().get(3).asetaSilmaluku(2);
+        alusta.getNopat().get(4).asetaSilmaluku(2);
+        alusta.getNopat().get(2).asetaSilmaluku(2);
+        assertEquals(50, alusta.getTulos("Kniffel"));
+    }
+
+    @Test
+    public void getTulosPieniSuoraToimii() {
+        assertEquals(15, alusta.getTulos("Pieni suora"));
+    }
+
+    @Test
+    public void getTulosSuuriSuoraToimii() {
+        alusta.getNopat().get(0).asetaSilmaluku(6);
+        assertEquals(20, alusta.getTulos("Suuri suora"));
+    }
+
+    @Test
+    public void getTulosSattumaToimii() {
+        assertEquals(15, alusta.getTulos("Sattuma"));
+    }
+
+    @Test
+    public void getTulosTakariToimii() {
+        assertEquals(0, alusta.getTulos("Täyskäsi"));
     }
 
     @After

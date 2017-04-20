@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * Noppaolio, joka saa randomnumeroita 1-6 välillä ja voi olla boolean arvolta
- * lukittu
+ * lukittu.
  *
  * @author nakkilinux
  */
@@ -14,37 +14,42 @@ public class Noppa implements Comparable<Noppa> {
     private int silmaluku;
     private boolean lukittu;
 
+    /**
+     * konstruktori, joka asettaa nopan vapaaksi heitettäväksi ja alustaa random
+     * olion.
+     */
     public Noppa() {
         this.luku = new Random();
         this.lukittu = false;
     }
 
+    /**
+     * palauttaa nopan sen tämänhetkisen silmäluvun.
+     *
+     * @return silmäluku
+     */
     public int silmaluku() {
         return this.silmaluku;
     }
 
     /**
-     * asettaa manuaalisesti halutun silmäluvun (Lähinnä testejä varten)
+     * asettaa manuaalisesti halutun silmäluvun (Lähinnä testejä varten).
      *
-     * @param luku
+     * @param luku = haluttu luku
      */
     public void asetaSilmaluku(int luku) {
         this.silmaluku = luku;
     }
 
-    public String toString() {
-        return "" + this.silmaluku;
-    }
-
     /**
-     * arpoo nopalle uuden silmäluvun väliltä 1-6
+     * arpoo nopalle uuden silmäluvun väliltä 1-6.
      */
     public void heitaNoppaa() {
         this.silmaluku = luku.nextInt(6) + 1;
     }
 
     /**
-     * vaihtaa nopan "statusta". Jos lukittu = true, noppaa ei heitetä
+     * Vaihtaa nopan "statusta". Jos lukittu = true, noppaa ei heitetä
      * pelilaudan metodilla
      */
     public void saasta() {
@@ -56,20 +61,14 @@ public class Noppa implements Comparable<Noppa> {
     }
 
     /**
-     * palauttaa boolean arvon, joka nopalla kutsuntahetkellä on
+     * palauttaa boolean arvon, joka nopalla kutsuntahetkellä on.
      *
-     * @return
+     * @return true tai false
      */
     public boolean saastetaanko() {
         return this.lukittu;
     }
 
-    /**
-     * nopat ovat vertailukelpoisia keskenään silmäluvun perusteella
-     *
-     * @param o
-     * @return
-     */
     @Override
     public int compareTo(Noppa o) {
         return this.silmaluku() - o.silmaluku();

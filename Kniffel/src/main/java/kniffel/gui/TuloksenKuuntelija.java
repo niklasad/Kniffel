@@ -12,15 +12,13 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
 import kniffel.logiikka.Noppa;
 import kniffel.logiikka.Pelialusta;
-import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 /**
  * Luokka joka asettaa käyttöliittymässä valittuun tulokseen oikeat pisteet
  * pelaajalle ja käyttöliittymään, sekä päivittää kaikki samalla pävittyvät
- * tiedot (summat jne.)
+ * tiedot (summat jne.).
  *
  * @author niklasad
  */
@@ -34,6 +32,17 @@ public class TuloksenKuuntelija implements ActionListener {
     private JLabel status;
     private List<JButton> napit;
 
+    /**
+     * Konstruktori joka saa parametreina tarvittavat komponentit.
+     *
+     * @param a = pelialusta
+     * @param t = pistetaulukko
+     * @param h = heittonappula
+     * @param n = noppanapit
+     * @param x = painettu tulos
+     * @param s = statuslabel
+     * @param tulosNapit = kaikki tulosnapit
+     */
     public TuloksenKuuntelija(Pelialusta a, JTable t, JButton h, List<JButton> n,
             JButton x, JLabel s, List<JButton> tulosNapit) {
         this.alusta = a;
@@ -52,7 +61,7 @@ public class TuloksenKuuntelija implements ActionListener {
      * on jo käytetty ja muuta ei tapahdu. Muutoin siirrytään metodiin joka
      * asettaa taulukkoon oikean tuloksen
      *
-     * @param ae
+     * @param ae = napinpainallus
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -87,7 +96,7 @@ public class TuloksenKuuntelija implements ActionListener {
      * Tarkistaa onko painettu tulosnappi, eli tulos jo käytetty kyseiseltä
      * pelaajalta.
      *
-     * @return
+     * @return palauttaa false, jos haluttu tulos ei ole käytetty vielä
      */
     public boolean onkoKaytetty() {
         if (alusta.getPelaajat().get(alusta.getVuorossaOlevaPelaaja()).haeTulos(tulos.getText()) == -1) {
@@ -169,9 +178,10 @@ public class TuloksenKuuntelija implements ActionListener {
     }
 
     /**
-     * palauttaa asetettavaa tulosta vastaavan rivikoordinaatin
+     * palauttaa asetettavaa tulosta vastaavan rivikoordinaatin.
      *
-     * @return
+     * @return palauttaa sen tuloksen rivipaikan numerona taulukossa johon tulos
+     * asetetaan.
      */
     public int getRow() {
         if (tulos.getText().equals("Ykköset")) {
