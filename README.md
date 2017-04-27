@@ -1,5 +1,5 @@
 # Kniffel
-Yatzi peli, yksin tai muita ihmisiä vastaan.
+Noppapeli Yatzy, yksin tai muita ihmisiä vastaan.
 
 **Dokumentointi**
 
