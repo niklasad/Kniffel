@@ -1,13 +1,12 @@
-**Käyttöohjeet**
-
-**Säännöt:**
+**SÄÄNNÖT:**
 
 Kukin pelaaja saa vuorollaan heittää noppia kolme kertaa. Ensimmäisellä kerralla on heitettävä kaikki nopat. Seuraavalla kahdella heittokerralla pelaaja saa vapaasti valita, mitkä nopat heittää. Kun pelaaja päättää heittovuoronsa, tulos kirjataan pöytäkirjaan ja vuoro siirtyy seuraavalle pelaajalle.
 Mikäli pelaaja ei saa sellaista yhdistelmää, joka voidaan kirjata pöytäkirjan johonkin kohtaan, on pöytäkirjaan merkittävä pelaajan valitsemaan kohtaan nolla pistettä.
 
-**Yhdistelmät**
+***YHDISTELMÄT**
 
-Yhdistelmistä saa pisteitä aina mukaan laskettavien noppien silmälukujen summan mukaan, esimerkiksi: yhdistelmä 6,6,4,1,5 tuottaisi Ykkösiin 1 pisteen, Kutosiin 12 pistettä, Pariin 12 pistettä, Sattumaan 22 pistettä, Kolmosiin 0 pistettä jne.
+Yhdistelmistä saa pisteitä aina mukaan laskettavien noppien silmälukujen summan mukaan (poislukien Kniffel, josta saa aina 50p). 
+Esimerkiksi: yhdistelmä 6,6,4,1,5 tuottaisi Ykkösiin 1 pisteen, Kutosiin 12 pistettä, Pariin 12 pistettä, Sattumaan 22 pistettä, Kolmosiin 0 pistettä jne.
 
 Pöytäkirjan yläosan yhdistelmät:
 
@@ -23,18 +22,18 @@ Mikäli pöytäkirjan yläosan yhdistelmistä pelaaja saa 63 pistettä tai yli (
 Pöytäkirjan alaosan yhdistelmät:
 
     Yksi pari: 	 kaksi kappaletta samaa silmälukua
-    Kaksi paria: kaksi eri paria (esim. 4,4,4,4,2 yhdisteläm ei kelpaa)
+    Kaksi paria: kaksi eri paria (esim. 4,4,4,4,2 yhdistelmä ei kelpaa)
     Kolmoisluku: kolmessa nopassa sama silmäluku
     Neloisluku:  neljässä nopassa sama luku
     Pieni suora: silmäluvut 1,2,3,4,5
     Suuri suora: 2+3+4+5+6
-    Täyskäsi:    yksi pari ja yksi kolmoisluku (Viisi samaa lukua ei kelpaa)
+    Täyskäsi:    yksi pari ja yksi kolmoisluku (viisi samaa lukua ei kelpaa)
     Sattuma:     Silmälukujen summa
     Kniffel:     kaikissa viidessä nopassa sama silmäluku: aina 50 pistettä.
 
 (LÄHDE: https://fi.wikipedia.org/wiki/Yatzy)
 
-**Toiminnot**
+**TOIMINNOT**
 
 Pelaajat lisätään kirjoittamalla nimi aloitusikkunan tekstiruutuun ja painamalla "Lisää Pelaaja" painiketta. Pelaajia pelissä voi olla 1-4. Peli aloitetaan Aloita Peli napilla.
 
