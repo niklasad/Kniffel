@@ -5,7 +5,6 @@
  */
 package kniffel.gui;
 
-import javax.swing.JTextField;
 import kniffel.logiikka.Pelialusta;
 
 /**

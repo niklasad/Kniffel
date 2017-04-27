@@ -2,7 +2,6 @@ package kniffel.logiikka;
 
 import java.util.ArrayList;
 import java.util.List;
-import kniffel.gui.PeliIkkuna;
 
 /**
  * Pelialusta pitää peliä kasassa, laskee kierrokset, hallitsee noppia, pelaajia
