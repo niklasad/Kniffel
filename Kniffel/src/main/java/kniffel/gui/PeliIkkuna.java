@@ -160,6 +160,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         pelaajaLabel.setText("Pelaaja");
         pelaajaLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        tulosTable.setAutoCreateRowSorter(true);
         tulosTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tulosTable.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         tulosTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -490,6 +491,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         tulosNapit.add(sattumaButton);
         tulosNapit.add(yatsiButton);
     }
+    
     /**
      * @param args the command line arguments
      */

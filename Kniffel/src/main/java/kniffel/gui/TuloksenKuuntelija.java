@@ -131,6 +131,7 @@ public class TuloksenKuuntelija implements ActionListener {
             lukitseTulosNapit();
             alustaNopat();
             status.setText(alusta.getPelaajat().get(alusta.getVuorossaOlevaPelaaja()) + " heittää!");
+            korostaPelaaja();
         } else {
             lopetaPeli();
         }
@@ -148,6 +149,13 @@ public class TuloksenKuuntelija implements ActionListener {
         }
         return false;
     }
+    
+    private void korostaPelaaja(){
+        taulukko.setColumnSelectionAllowed(true);
+        taulukko.setColumnSelectionInterval(alusta.getVuorossaOlevaPelaaja(), alusta.getVuorossaOlevaPelaaja());
+        taulukko.setColumnSelectionAllowed(false);
+    }
+    
 
     /**
      * hoitaa pelin lopettavat toimenpiteet ja julistaa voittajan statukseen
