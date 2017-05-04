@@ -14,3 +14,5 @@ Päivä | Tunnit | Kuvaus
 18.04.2017 | 3 h | Käyttöliittymä "valmis", javadoccia
 20.04.2017 | 5 h | Sekvenssikaavioita, luokkakaavion päivittelyä, testien tekoa ja JavaDoccia jne. jotain pientä
 27.04.2017 | 3 h | Käyttöohjeita, rakennekuvaus, jar. tiedoston luonti, jotain pientä säätöä 
+03.05.2017 | 1 h | Loppuraportin valmistelua
+04.05.2017 | 2h  | Loppuraportin valmistelua
