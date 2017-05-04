@@ -41,6 +41,10 @@ public class Pelaaja {
         return this.nimi;
     }
 
+    /**Palauttaa nimen.
+     *
+     * @return nimi
+     */
     public String toString() {
         return this.nimi;
     }

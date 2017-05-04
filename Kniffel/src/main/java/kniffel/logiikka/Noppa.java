@@ -48,6 +48,11 @@ public class Noppa implements Comparable<Noppa> {
         this.silmaluku = luku.nextInt(6) + 1;
     }
 
+    /**
+     * Palauttaa silmäluvun.
+     *
+     * @return silmäluvun
+     */
     public String toString() {
         return "" + this.silmaluku;
     }
