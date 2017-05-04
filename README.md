@@ -1,5 +1,5 @@
 # Kniffel
-Noppapeli Yatzy, yksin tai muita ihmisiä vastaan.
+Noppapeli Yatzy, yksin tai muita ihmisiä vastaan. Käytäthän uusinta Java versiota, vanhoilla heittää exceptionia.
 
 **Dokumentointi**
 
